@@ -17,6 +17,22 @@ body,html {
   justify-content: center;
 }
 
+.title{
+  display: flex;
+  flex: 1;
+  min-height: 10vh;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  margin: auto;
+  padding: 2rem .5rem;
+  transition: all .07s ease;
+  width: 50rem;
+  text-align: center;
+  color: white;
+  text-shadow: 0 0 .5rem black;
+}
+
 .key {
   border: .4rem solid white;
   border-radius: .5rem;
