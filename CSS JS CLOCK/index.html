@@ -63,12 +63,23 @@
       position: absolute;
       top:50%;
       transform-origin: 100%;
+      transform: rotate(90deg);
+      transition: all 0.05s;
+      transition-timing-function: ease-in-out;
     }
 
   </style>
 
   <script>
 
+  function setDate(){
+    const now = new Date();
+    const seconds = now.getSeconds();
+    const secondDegress = (seconds / 60) * 360
+
+  }
+
+  setInterval(setDate, 1000) //every second calls function
 
   </script>
 </body>
