@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Type Ahead 👀</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <form class="search-form">
+    <input type="text" class="search" placeholder="City or State">
+    <ul class="suggestions">
+      <li>Filter for a city</li>
+      <li>or a state</li>
+    </ul>
+  </form>
+<script>
+const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+const cities = []
+console.log("hello");
+
+const whatis = fetch(endpoint);
+console.log(whatis);
+whatis.then(blob => blob.json())
+      // .then(log => console.log(log))
+      .then(data => cities.push(...data))
+      console.log(cities);
+//A promise represents the eventual result of an asynchronous operation. It is a placeholder into which the successful result value or reason for failure will materialize.
+
+function findMatches(wordToMatch, cities) {
+  return cities.filter(place => {
+    //city/state matches what is searched?
+    const regex = new RegExp(wordToMatch, 'gi')
+    // console.log(place.city.match(regex) || place.state.match(regex));
+    return place.city.match(regex) || place.state.match(regex)
+  })
+}
+// console.log(findMatches('Bos', cities));
+
+
+function displayMatches(){
+  console.log(this.value);
+}
+
+const searchInput = documentQuerySelector('.search')
+const suggestions = documentQuerySelector('.suggestions')
+
+
+searchInput.addEventListener('change', displayMatches)
+</script>
+  </body>
+</html>
