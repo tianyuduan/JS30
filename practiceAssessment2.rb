@@ -48,6 +48,7 @@ end
 p product_punctuation("hello!,.");
 # Translate a sentence into pig-latin! The first consonants go to the end of the word, then add "ay".
 def pig_latin(sentence)
+  
 
 end
 
