@@ -100,6 +100,8 @@
 
 <script>
 
+  let lastChecked;
+
   function handleCheck(e){
     console.log(e);
     let inBetween = false;
@@ -110,14 +112,18 @@
         console.log(checkbox);
         if (checkbox === this || checkbox === lastChecked){
           //this is saying if as it loops the checkbox @ this current check is equal to this, and the last checkbox equals this as well
-          //we want to iterate thru the checkboxes and check from beginning and end 
-
+          //we want to iterate thru the checkboxes and check from beginning and end
+          inBetween = !inBetween; //set its to the opposite of itself
+          console.log('starting');
+        }
+        if (inBetween) {
+          checkbox.checked = true
         }
       })
     }
+    lastChecked = this;
   }
 
-  let lastChecked = this;
 
   const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]')
   console.log(checkboxes);
