@@ -17,7 +17,6 @@ end
 #   hash.each_with_index do |i, idx|
 #     hash[letters[idx]] << idx
 #   end
-#
 #   p hash
 # end
 
