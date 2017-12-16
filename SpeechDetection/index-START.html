@@ -36,14 +36,15 @@
       //
       // const weatherScript = transcript.replace(/what is the weather|weather/gi, 'the weather in San Mateo is 78 F');
 
-      const changeScript = function(){
+      // const changeScript = function(){
 
-        const nameScript = transcript.replace(/what is your name/gi, 'My name is Siri Just kidding');
-        
+        // const nameScript = transcript.replace(/what is your name/gi, 'My name is Siri Just kidding');
+
         const weatherScript = transcript.replace(/what is the weather|weather/gi, 'the weather in San Mateo is 78 F');
+        p.textContent = weatherScript;
 
-      }
-      p.textContent = changeScript;
+      // }
+      // p.textContent = changeScript;
 
       // if (nameScript){
       //   console.log('hello');
@@ -61,8 +62,6 @@
   recognition.addEventListener('end', recognition.start);
 
   recognition.start();
-
-
 
 </script>
 
