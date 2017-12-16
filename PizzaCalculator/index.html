@@ -13,48 +13,45 @@
 <form name="calculator">
          <table>
             <tr>
-               <td colspan="4">
-                 <div> Enter the price of Pizza (S) </div>
-                 <input type="text" name="display" id="displayS" >
-                 <div> Now enter how many inches it is </div>
-                 <input type="text" name="displayInchS" id="displayInchS" >
-                 <div> Output in Inch ^ 2 per Dollar </div>
-                  <input type="text" name="displayOutputS" id="displayOutputS" >
-               </td>
-               <td colspan="4">
-                 <div> Enter the price of Pizza (M) </div>
-                 <input type="text" name="displayM" id="displayM" >
-                 <div> Now enter how many inches it is </div>
-                 <input type="text" name="displayInchM" id="displayInchM" >
-                 <div> Output in Inch ^ 2 per Dollar </div>
-                  <input type="text" name="displayOutputM" id="displayOutputM" >
-               </td>
-               <td colspan="4">
-                 <div> Enter the price of Pizza (L) </div>
-                 <input type="text" name="displayL" id="displayL" >
-                 <div> Now enter how many inches it is </div>
-                 <input type="text" name="displayInchL" id="displayInchL" >
-                 <div> Output in Inch ^ 2 per Dollar </div>
-                  <input type="text" name="displayOutputL" id="displayOutputL" >
-               </td>
+              <td colspan="4">
+                <div> Enter the price of Pizza (S) </div>
+                <input type="text" name="displayS" value="13.99" id="displayS" >
+                <div> Now enter how many inches it is </div>
+                <input type="text" name="displayInchS" value="10" id="displayInchS" >
+                <div> Output in Inch ^ 2 per Dollar </div>
+                 <input type="text" name="displayOutputS" id="displayOutputS" >
+              </td>
+              <td colspan="4">
+                <div> Enter the price of Pizza (M) </div>
+                <input type="text" name="displayM" value="18.99"id="displayM" >
+                <div> Now enter how many inches it is </div>
+                <input type="text" name="displayInchM" value="12" id="displayInchM" >
+                <div> Output in Inch ^ 2 per Dollar </div>
+                 <input type="text" name="displayOutputM" id="displayOutputM" >
+              </td>
+              <td colspan="4">
+                <div> Enter the price of Pizza (L) </div>
+                <input type="text" name="displayL" value="21.99" id="displayL" >
+                <div> Now enter how many inches it is </div>
+                <input type="text" name="displayInchL" value="16" id="displayInchL" >
+                <div> Output in Inch ^ 2 per Dollar </div>
+                 <input type="text" name="displayOutputL" id="displayOutputL" >
+              </td>
             </tr>
             <tr>
-               <td><input type="button" id="clear" name="clear" value="c" onclick="calculator.display.value = ''"></td>
-               <td><input type="button" name="zero" value="0" onclick="calculator.display.value += '0'"></td>
+               <td><input type="button" id="clear" name="clear" value="c" onclick="calculator.displayS.value = ''"></td>
+               <td><input type="button" name="zero" value="0" onclick="calculator.displayM.value += '0'"></td>
                <td><input type="button" name="doit" value="Calculate"
                  onclick="
-                 calculator.displayOutputS.value = Math.round(((Math.pow((calculator.displayInchS.value)/2, 2)* Math.PI) / calculator.displayInchS.value) * 100) / 100;
+                 calculator.displayOutputS.value = Math.round(((Math.pow((calculator.displayInchS.value)/2, 2)* Math.PI) / calculator.displayS.value) * 100) / 100;
 
-                calculator.displayOutputM.value = Math.round(((Math.pow((calculator.displayInchM.value)/2, 2)* Math.PI) / calculator.displayInchM.value) * 100) / 100;
+                calculator.displayOutputM.value = Math.round(((Math.pow((calculator.displayInchM.value)/2, 2)* Math.PI) / calculator.displayM.value) * 100) / 100;
 
-                calculator.displayOutputL.value = Math.round(((Math.pow((calculator.displayInchL.value)/2, 2)* Math.PI) / calculator.displayInchL.value) * 100) / 100;
+                calculator.displayOutputL.value = Math.round(((Math.pow((calculator.displayInchL.value)/2, 2)* Math.PI) / calculator.displayL.value) * 100) / 100;
 
-                priceS = dis
 
-                
                 google.charts.load('current', {'packages':['bar']});
                 google.charts.setOnLoadCallback(drawStuff);
-
                 "
                  ></td>
                <td><input type="button" class="operator" name="div" value="/" onclick="calculator.display.value += '/'"></td>
@@ -82,16 +79,27 @@ window.addEventListener('keyup', (e)=>{
       function drawStuff() {
         const data = new google.visualization.arrayToDataTable([
           ['Pizza Dimensions', 'Pizza Option 1 (S)','Pizza Option 2 (M)','Pizza Option 3 (L)' ],
-          ['Total Area of Pizza', `${calculator.displayOutputS.value}`, calculator.displayOutputS.value,calculator.displayOutputS.value],
-          ['Price Per Slice(8)', 30000, 14.3,5],
-          ['Quantity in Inches^2 per Dollar', 8000, 23.3,5],
+          ['Total Area(inches^2 per thousand)',
+          Math.round((Math.pow((calculator.displayInchS.value)/2, 2)* Math.PI) * 100 ) /1000,
+          Math.round((Math.pow((calculator.displayInchM.value)/2, 2)* Math.PI) * 100 ) /1000,
+          Math.round((Math.pow((calculator.displayInchL.value)/2, 2)* Math.PI) * 100 ) /1000,
+        ],
+          ['Price Per Slice(8) in Dollars',
+          calculator.displayS.value / 8,
+          calculator.displayM.value / 8 ,
+          calculator.displayL.value / 8],
+          ['Value (Quantity in inches^2 per Dollar)',
+          calculator.displayOutputS.value,
+          calculator.displayOutputM.value,
+          calculator.displayOutputL.value
+        ],
         ]);
 
         const options = {
           width: 800,
           chart: {
             title: 'Which Pizza is worth it?',
-            subtitle: 'Comparing the value between Small, Medium and Large Pizzas'
+            subtitle: 'Comparing the value between small, medium and large Pizzas'
           },
           bars: 'horizontal', // Required for Material Bar Charts.
           series: {
