@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+       <div id="dual_x_div" style="width: 900px; height: 500px;"></div>
+</head>
+<body>
+<div class='title'>Try typing HELLO</div>
+<form name="calculator">
+         <table>
+            <tr>
+               <td colspan="4">
+                 <div> Enter the price of Pizza (S) </div>
+                 <input type="text" name="display" id="displayS" >
+                 <div> Now enter how many inches it is </div>
+                 <input type="text" name="displayInchS" id="displayInchS" >
+                 <div> Output in Inch ^ 2 per Dollar </div>
+                  <input type="text" name="displayOutputS" id="displayOutputS" >
+               </td>
+               <td colspan="4">
+                 <div> Enter the price of Pizza (M) </div>
+                 <input type="text" name="displayM" id="displayM" >
+                 <div> Now enter how many inches it is </div>
+                 <input type="text" name="displayInchM" id="displayInchM" >
+                 <div> Output in Inch ^ 2 per Dollar </div>
+                  <input type="text" name="displayOutputM" id="displayOutputM" >
+               </td>
+               <td colspan="4">
+                 <div> Enter the price of Pizza (L) </div>
+                 <input type="text" name="displayL" id="displayL" >
+                 <div> Now enter how many inches it is </div>
+                 <input type="text" name="displayInchL" id="displayInchL" >
+                 <div> Output in Inch ^ 2 per Dollar </div>
+                  <input type="text" name="displayOutputL" id="displayOutputL" >
+               </td>
+            </tr>
+            <tr>
+               <td><input type="button" id="clear" name="clear" value="c" onclick="calculator.display.value = ''"></td>
+               <td><input type="button" name="zero" value="0" onclick="calculator.display.value += '0'"></td>
+               <td><input type="button" name="doit" value="Calculate"
+                 onclick="calculator.displayOutputS.value = Math.round(((Math.pow((calculator.displayInchS.value)/2, 2)* Math.PI) / calculator.displayInchS.value) * 100) / 100;
+                calculator.displayOutputM.value = Math.round(((Math.pow((calculator.displayInchM.value)/2, 2)* Math.PI) / calculator.displayInchM.value) * 100) / 100;
+                calculator.displayOutputL.value = Math.round(((Math.pow((calculator.displayInchL.value)/2, 2)* Math.PI) / calculator.displayInchL.value) * 100) / 100;"
+                 ></td>
+               <td><input type="button" class="operator" name="div" value="/" onclick="calculator.display.value += '/'"></td>
+            </tr>
+         </table>
+      </form>
+<script>
+  const pressedArray = []
+  const secretCode = 'hello'
+window.addEventListener('keyup', (e)=>{
+  console.log(e.key);//logs the key the user presses
+  pressedArray.push(e.key);
+  pressedArray.splice(-secretCode.length - 1, pressedArray.length - secretCode.length); //???
+
+  if (pressedArray.join("").includes(secretCode)){
+    console.log("YOU GOT THE SECRET CODE");
+    cornify_add();
+  }
+  console.log(pressedArray);
+})
+
+google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawStuff);
+
+      function drawStuff() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Galaxy', 'Distance', 'Brightness'],
+          ['Canis Major Dwarf', 8000, 23.3],
+          ['Sagittarius Dwarf', 24000, 4.5],
+          ['Ursa Major II Dwarf', 30000, 14.3],
+          ['Lg. Magellanic Cloud', 50000, 0.9],
+          ['Bootes I', 60000, 13.1]
+        ]);
+
+        var options = {
+          width: 800,
+          chart: {
+            title: 'Nearby galaxies',
+            subtitle: 'distance on the left, brightness on the right'
+          },
+          bars: 'horizontal', // Required for Material Bar Charts.
+          series: {
+            0: { axis: 'distance' }, // Bind series 0 to an axis named 'distance'.
+            1: { axis: 'brightness' } // Bind series 1 to an axis named 'brightness'.
+          },
+          axes: {
+            x: {
+              distance: {label: 'parsecs'}, // Bottom x-axis.
+              brightness: {side: 'top', label: 'apparent magnitude'} // Top x-axis.
+            }
+          }
+        };
+
+      var chart = new google.charts.Bar(document.getElementById('dual_x_div'));
+      chart.draw(data, options);
+    };
+
+</script>
+</body>
+</html>
