@@ -58,14 +58,27 @@
          </table>
       </form>
       <div id="dual_x_div" style="width: 900px; height: 500px;"></div>
+
       <input type="button" value="FIND OUT WHICH PIZZA HAS THE MOST VALUE!"
-      onclick="play();
-      bestPizza();
+      onclick="
+      play();
+      displayBestOption(bestPizza());
+      document.getElementById('light').style.display='block';
+      document.getElementById('fade').style.display='block'
       ">
+      <div id="light" class="white_content"> <a href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';
+        document.getElementById('fade').style.display='none'">Close</a>
+      </div>
+      <body>
+        <!-- <p>This is the main content. To display a lightbox click <a href="javascript:void(0)" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">here</a>
+        </p> -->
+        <div id="light" class="white_content"> <a href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';
+          document.getElementById('fade').style.display='none'">Close</a>
+        </div>
+        <div id="fade" class="black_overlay"></div>
+      </body>
       <audio id="audio" src="./MLGAirHorn.mp3" ></audio>
 <script>
-
-
 
 function play(){
       const audio = document.getElementById("audio");
@@ -88,14 +101,33 @@ window.addEventListener('keyup', (e)=>{
       //crust / pizza ratioo
       // google.charts.load('current', {'packages':['bar']});
       // google.charts.setOnLoadCallback(drawStuff);
-
       function bestPizza(){
-        // array = []
-        // // array.push(calculator.displayOutputS.value, calculator.displayOutputM.value, calculator.displayOutputL.value)
-        // // console.log(arr);
-        const best = Math.max(calculator.displayOutputS.value, calculator.displayOutputM.value, calculator.displayOutputL.value);
-        console.log(best);
-        return best;
+        const PizzaOptions = {}
+        PizzaOptions["Option 1"] = calculator.displayOutputS.value;
+        PizzaOptions["Option 2"] = calculator.displayOutputM.value;
+        PizzaOptions["Option 3"] = calculator.displayOutputL.value;
+
+
+      let max = 'Option 1'
+      if (PizzaOptions["Option 2"] > PizzaOptions["Option 1"]){
+        max = 'Option 2'
+      }
+       if (PizzaOptions["Option 3"] > PizzaOptions["Option 2"]){
+         console.log(PizzaOptions["Option 3"]);
+         console.log(PizzaOptions["Option 2"]);
+        max = "Option 3"
+      }
+
+      console.log(max);
+      return max;
+      console.log(Object.keys(PizzaOptions));
+      console.log(Object.values(PizzaOptions));
+      }
+
+      function displayBestOption(e){
+        console.log(e);
+        const div = document.getElementById('light')
+        div.innerHTML = e
       }
 
 
@@ -138,7 +170,6 @@ window.addEventListener('keyup', (e)=>{
             }
           }
         };
-
       const chart = new google.charts.Bar(document.getElementById('dual_x_div'));
       chart.draw(data, options);
     };
