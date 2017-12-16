@@ -42,9 +42,20 @@
                <td><input type="button" id="clear" name="clear" value="c" onclick="calculator.display.value = ''"></td>
                <td><input type="button" name="zero" value="0" onclick="calculator.display.value += '0'"></td>
                <td><input type="button" name="doit" value="Calculate"
-                 onclick="calculator.displayOutputS.value = Math.round(((Math.pow((calculator.displayInchS.value)/2, 2)* Math.PI) / calculator.displayInchS.value) * 100) / 100;
+                 onclick="
+                 calculator.displayOutputS.value = Math.round(((Math.pow((calculator.displayInchS.value)/2, 2)* Math.PI) / calculator.displayInchS.value) * 100) / 100;
+
                 calculator.displayOutputM.value = Math.round(((Math.pow((calculator.displayInchM.value)/2, 2)* Math.PI) / calculator.displayInchM.value) * 100) / 100;
-                calculator.displayOutputL.value = Math.round(((Math.pow((calculator.displayInchL.value)/2, 2)* Math.PI) / calculator.displayInchL.value) * 100) / 100;"
+
+                calculator.displayOutputL.value = Math.round(((Math.pow((calculator.displayInchL.value)/2, 2)* Math.PI) / calculator.displayInchL.value) * 100) / 100;
+
+                priceS = dis
+
+                
+                google.charts.load('current', {'packages':['bar']});
+                google.charts.setOnLoadCallback(drawStuff);
+
+                "
                  ></td>
                <td><input type="button" class="operator" name="div" value="/" onclick="calculator.display.value += '/'"></td>
             </tr>
@@ -65,29 +76,29 @@ window.addEventListener('keyup', (e)=>{
   console.log(pressedArray);
 })
 
-google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawStuff);
+      // google.charts.load('current', {'packages':['bar']});
+      // google.charts.setOnLoadCallback(drawStuff);
 
       function drawStuff() {
-        var data = new google.visualization.arrayToDataTable([
-          ['Galaxy', 'Distance', 'Brightness'],
-          ['Canis Major Dwarf', 8000, 23.3],
-          ['Sagittarius Dwarf', 24000, 4.5],
-          ['Ursa Major II Dwarf', 30000, 14.3],
-          ['Lg. Magellanic Cloud', 50000, 0.9],
-          ['Bootes I', 60000, 13.1]
+        const data = new google.visualization.arrayToDataTable([
+          ['Pizza Dimensions', 'Pizza Option 1 (S)','Pizza Option 2 (M)','Pizza Option 3 (L)' ],
+          ['Total Area of Pizza', `${calculator.displayOutputS.value}`, calculator.displayOutputS.value,calculator.displayOutputS.value],
+          ['Price Per Slice(8)', 30000, 14.3,5],
+          ['Quantity in Inches^2 per Dollar', 8000, 23.3,5],
         ]);
 
-        var options = {
+        const options = {
           width: 800,
           chart: {
-            title: 'Nearby galaxies',
-            subtitle: 'distance on the left, brightness on the right'
+            title: 'Which Pizza is worth it?',
+            subtitle: 'Comparing the value between Small, Medium and Large Pizzas'
           },
           bars: 'horizontal', // Required for Material Bar Charts.
           series: {
-            0: { axis: 'distance' }, // Bind series 0 to an axis named 'distance'.
-            1: { axis: 'brightness' } // Bind series 1 to an axis named 'brightness'.
+            0: { axis: 'Pizza Dimension' }, // Bind series 0 to an axis named 'distance'.
+            1: { axis: 'Pizza Option 1 (S)' },
+            2: { axis: 'Pizza Option 2 (M)' }  // Bind series 1 to an axis named 'brightness'.
+            // 3: { axis: 'Pizza Option 3 (L)' }  // Bind series 1 to an axis named 'brightness'.
           },
           axes: {
             x: {
@@ -97,7 +108,7 @@ google.charts.load('current', {'packages':['bar']});
           }
         };
 
-      var chart = new google.charts.Bar(document.getElementById('dual_x_div'));
+      const chart = new google.charts.Bar(document.getElementById('dual_x_div'));
       chart.draw(data, options);
     };
 
