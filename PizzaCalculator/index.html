@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Key Detection</title>
+  <title>First World Pizza Problem Solver</title>
   <link rel="stylesheet" href="style.css">
   <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-       <div id="dual_x_div" style="width: 900px; height: 500px;"></div>
 </head>
 <body>
 <div class='title'>Try typing HELLO</div>
@@ -58,7 +57,21 @@
             </tr>
          </table>
       </form>
+      <div id="dual_x_div" style="width: 900px; height: 500px;"></div>
+      <input type="button" value="FIND OUT WHICH PIZZA HAS THE MOST VALUE!"
+      onclick="play();
+      bestPizza();
+      ">
+      <audio id="audio" src="./MLGAirHorn.mp3" ></audio>
 <script>
+
+
+
+function play(){
+      const audio = document.getElementById("audio");
+      audio.play();
+                }
+
   const pressedArray = []
   const secretCode = 'hello'
 window.addEventListener('keyup', (e)=>{
@@ -72,9 +85,19 @@ window.addEventListener('keyup', (e)=>{
   }
   console.log(pressedArray);
 })
-
+      //crust / pizza ratioo
       // google.charts.load('current', {'packages':['bar']});
       // google.charts.setOnLoadCallback(drawStuff);
+
+      function bestPizza(){
+        // array = []
+        // // array.push(calculator.displayOutputS.value, calculator.displayOutputM.value, calculator.displayOutputL.value)
+        // // console.log(arr);
+        const best = Math.max(calculator.displayOutputS.value, calculator.displayOutputM.value, calculator.displayOutputL.value);
+        console.log(best);
+        return best;
+      }
+
 
       function drawStuff() {
         const data = new google.visualization.arrayToDataTable([
@@ -101,7 +124,7 @@ window.addEventListener('keyup', (e)=>{
             title: 'Which Pizza is worth it?',
             subtitle: 'Comparing the value between small, medium and large Pizzas'
           },
-          bars: 'horizontal', // Required for Material Bar Charts.
+          bars: 'vertical', // Required for Material Bar Charts.
           series: {
             0: { axis: 'Pizza Dimension' }, // Bind series 0 to an axis named 'distance'.
             1: { axis: 'Pizza Option 1 (S)' },
