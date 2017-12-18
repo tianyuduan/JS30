@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <canvas id="confeti" class="active"></canvas>
-
   <title>First World Pizza Problem Solver</title>
-  <div id="image">hello  </div>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="main.css">
   <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
@@ -66,8 +64,10 @@
        </div>
       </form>
       <div id="unicorn">Disclaimer: Typing "pizza" into this browser will spawn unicorns</div>
-      <div id="myModal" class="modal">
+      <div id="dual_x_div" ></div>
 
+
+      <div id="myModal" class="modal">
   <!-- Modal content -->
       <div class="modal-content">
         <span class="close">&times;</span>
@@ -76,16 +76,17 @@
           <p> $ </p>
         <p id="modal-content"></p>
         <p> </p>
-        <p>Pizza</p>
         </div>
+        <p>Pizza</p>
       </div>
 
       <audio id="audio" src="./MLGAirHorn.mp3" ></audio>
-      <div id="dual_x_div" ></div>
+
 <script>
 
 function play(){
       const audio = document.getElementById("audio");
+      audio.volume = 0.01;
       audio.play();
                 }
 
@@ -189,6 +190,7 @@ window.addEventListener('keyup', (e)=>{
         const result = bestPizza();
         const div = document.getElementById('modal-content')
         div.innerHTML = result;
+        play();
         // console.log(result);
         // btn.innerHTML = result;
         // console.log(btn.innerHTML);
