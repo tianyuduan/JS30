@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <canvas id="confeti"  class="active"></canvas>
+  <canvas id="confeti" class="active"></canvas>
+
   <title>First World Pizza Problem Solver</title>
+  <div id="image">hello  </div>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="main.css">
   <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
@@ -40,61 +42,42 @@
               </td>
             </tr>
             <tr>
-               <td><input type="button" name="doit" value="Calculate"
-                 onclick="
-                 calculator.displayOutputS.value = Math.round(((Math.pow((calculator.displayInchS.value)/2, 2)* Math.PI) / calculator.displayS.value) * 100) / 100
-
-                 calculator.displayOutputS.value = Math.round(((Math.pow((calculator.displayInchS.value)/2, 2)* Math.PI) / calculator.displayS.value) * 100) / 100;
-
-                calculator.displayOutputM.value = Math.round(((Math.pow((calculator.displayInchM.value)/2, 2)* Math.PI) / calculator.displayM.value) * 100) / 100;
-
-                calculator.displayOutputL.value = Math.round(((Math.pow((calculator.displayInchL.value)/2, 2)* Math.PI) / calculator.displayL.value) * 100) / 100;
-
-
-                google.charts.load('current', {'packages':['bar']});
-                google.charts.setOnLoadCallback(drawStuff);
-
-                swapCanvas();
-                "
-                 ></td>
-            </tr>
          </table>
+         <div id="buttonCalWin">
+          <td><input type="button" name="doit" value="Calculate"
+            onclick="
+            calculator.displayOutputS.value = Math.round(((Math.pow((calculator.displayInchS.value)/2, 2)* Math.PI) / calculator.displayS.value) * 100) / 100
+
+            calculator.displayOutputS.value = Math.round(((Math.pow((calculator.displayInchS.value)/2, 2)* Math.PI) / calculator.displayS.value) * 100) / 100;
+
+           calculator.displayOutputM.value = Math.round(((Math.pow((calculator.displayInchM.value)/2, 2)* Math.PI) / calculator.displayM.value) * 100) / 100;
+
+           calculator.displayOutputL.value = Math.round(((Math.pow((calculator.displayInchL.value)/2, 2)* Math.PI) / calculator.displayL.value) * 100) / 100;
+
+
+           google.charts.load('current', {'packages':['bar']});
+           google.charts.setOnLoadCallback(drawStuff);
+           swapCanvas();
+           "
+            ></td>
+       </tr>
+       <td><input type="button" id="myBtn" name="doit" value="Decide Winner"
+         ></td>
+       </div>
       </form>
       <div id="unicorn">Disclaimer: Typing "pizza" into this browser will spawn unicorns</div>
-      <div id="dual_x_div" ></div>
+      <div id="myModal" class="modal">
 
-      <!-- <input type="button" value="FIND OUT WHICH PIZZA HAS THE MOST VALUE!"
-      onclick="
-      play();
-      displayBestOption(bestPizza());
-      document.getElementById('light').style.display='block';
-      document.getElementById('fade').style.display='block'
-      "> -->
-      <div id="light" class="white_content"> <a href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';
-        document.getElementById('fade').style.display='none'">Close</a>
-      </div>
-      <body>
-        <!-- <p>This is the main content. To display a lightbox click <a href="javascript:void(0)" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">here</a>
-        </p> -->
-        <div id="light" class="white_content"> <a href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';
-          document.getElementById('fade').style.display='none'">Close</a>
+  <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>The best option is to purchase the `${Option}` pizza</p>
         </div>
-        <div id="fade" class="black_overlay"></div>
-      </body>
+      </div>
+
+      <div id="dual_x_div" ></div>
       <audio id="audio" src="./MLGAirHorn.mp3" ></audio>
 <script>
-
-  // const calculator = {
-  //   displayOutputS: {
-  //     value: 1
-  //   },
-  //   displayOutputM: {
-  //     value: 2
-  //   },
-  //   displayOutputL: {
-  //     value: 3
-  //   }
-  // };
 
 function play(){
       const audio = document.getElementById("audio");
@@ -114,38 +97,41 @@ window.addEventListener('keyup', (e)=>{
   }
   // console.log(pressedArray);
 })
-      //crust / pizza ratioo
-      // google.charts.load('current', {'packages':['bar']});
-      // google.charts.setOnLoadCallback(drawStuff);
       function bestPizza(){
         const PizzaOptions = {}
-        const option1 = calculator.displayOutputS.value;
-        const option2 = calculator.displayOutputM.value;
-        const option3 = calculator.displayOutputL.value;
+        PizzaOptions[calculator.displayS.value] = calculator.displayOutputS.value;
+        PizzaOptions[calculator.displayM.value] = calculator.displayOutputM.value;
+        PizzaOptions[calculator.displayL.value] = calculator.displayOutputL.value;
+        // const option1 = calculator.displayOutputS.value;
+        // const option2 = calculator.displayOutputM.value;
+        // const option3 = calculator.displayOutputL.value;
 
-        const max = Math.max(option1, option2, option3)
+        console.log(PizzaOptions);
+        const keys = Object.keys(PizzaOptions)
+        const array = []
+        array.push(...Object.values(PizzaOptions));
+        let max = array.reduce(function(a,b){
+          return Math.max(a,b)
+        })
+        console.log(keys);
+        console.log(array);
         console.log(max);
-        console.log(option1);
-        // console.log(Math.max(option1, option2, option3));
-
-        if (max === option1){
-          console.log("option1");
-          return "Option 1"
-        } else if (max === option2){
-          console.log("option2");
-          return "Option 2"
+        let result = 0;
+        function getKeyByValue(PizzaOptions, max) {
+          console.log("hello");
+          console.log(max);
+          result =  Object.keys(PizzaOptions).find(key => PizzaOptions[key] === max);
+          return result;
         }
-        else if (max === option3){
-          console.log("option3");
-          return "Option 3"
-        }
+        getKeyByValue(PizzaOptions, max);
+        console.log(result);
       }
 
 
       function displayBestOption(e){
-        console.log(e);
-        const div = document.getElementById('light')
-        div.innerHTML = e
+        // console.log(e);
+        // const div = document.getElementById('myBtn')
+        // div.innerHTML = e
       }
 
       function drawStuff() {
@@ -181,6 +167,37 @@ window.addEventListener('keyup', (e)=>{
       const chart = new google.charts.Bar(document.getElementById('dual_x_div'));
       chart.draw(data, options);
     };
+
+    // Get the modal
+    let modal = document.getElementById('myModal');
+
+    // Get the button that opens the modal
+    let btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    let span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function() {
+        const result = bestPizza();
+        console.log(result);
+        btn.innerHTML = bestPizza();
+        console.log(btn.innerHTML);
+        // displayBestOption(bestPizza());
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 
     function swapCanvas(){
       canvas.style.visibility = 'visible';
