@@ -52,3 +52,15 @@ body {
   width: 800px;
   box-shadow: 5px 10px #888888;
 }
+
+#unicorn {
+  font-size: 18px;
+  margin-left: 2em;
+  margin-top: -2em;
+}
+
+#confeti {
+  position: absolute;
+  z-index: -1;
+
+}
