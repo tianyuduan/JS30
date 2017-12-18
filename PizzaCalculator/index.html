@@ -71,12 +71,17 @@
   <!-- Modal content -->
       <div class="modal-content">
         <span class="close">&times;</span>
-        <p>The best option is to purchase the `${Option}` pizza</p>
+        <p >The best option is to purchase the</p>
+        <div class="modal-text">
+          <p> $ </p>
+        <p id="modal-content"></p>
+        <p> </p>
+        <p>Pizza</p>
         </div>
       </div>
 
-      <div id="dual_x_div" ></div>
       <audio id="audio" src="./MLGAirHorn.mp3" ></audio>
+      <div id="dual_x_div" ></div>
 <script>
 
 function play(){
@@ -99,39 +104,40 @@ window.addEventListener('keyup', (e)=>{
 })
       function bestPizza(){
         const PizzaOptions = {}
-        PizzaOptions[calculator.displayS.value] = calculator.displayOutputS.value;
-        PizzaOptions[calculator.displayM.value] = calculator.displayOutputM.value;
-        PizzaOptions[calculator.displayL.value] = calculator.displayOutputL.value;
-        // const option1 = calculator.displayOutputS.value;
-        // const option2 = calculator.displayOutputM.value;
-        // const option3 = calculator.displayOutputL.value;
+        const PriceS = calculator.displayS.value
+        const PriceM = calculator.displayM.value
+        const PriceL = calculator.displayL.value
+        const OutputS = calculator.displayOutputS.value
+        const OutputM = calculator.displayOutputM.value
+        const OutputL = calculator.displayOutputL.value
+        PizzaOptions[PriceS] = OutputS;
+        PizzaOptions[PriceM] = OutputM;
+        PizzaOptions[PriceL] = OutputL;
 
-        console.log(PizzaOptions);
         const keys = Object.keys(PizzaOptions)
         const array = []
         array.push(...Object.values(PizzaOptions));
         let max = array.reduce(function(a,b){
           return Math.max(a,b)
         })
-        console.log(keys);
-        console.log(array);
-        console.log(max);
-        let result = 0;
-        function getKeyByValue(PizzaOptions, max) {
-          console.log("hello");
-          console.log(max);
-          result =  Object.keys(PizzaOptions).find(key => PizzaOptions[key] === max);
-          return result;
-        }
-        getKeyByValue(PizzaOptions, max);
-        console.log(result);
+
+        let result = Object.keys(PizzaOptions).find(key => {
+
+          if (Math.round(PizzaOptions[key], 2) === Math.round(max, 2)){
+            //The whole time the issue was the number printed to the dev tools was automatically rounded, and did not reprsent the actual number, so when we tested for equality, the two numbers were not equal.
+            // console.log(key);
+            return key
+          }
+        });
+        // console.log(result);
+        return result;
       }
 
 
       function displayBestOption(e){
-        // console.log(e);
-        // const div = document.getElementById('myBtn')
-        // div.innerHTML = e
+        console.log(e);
+        const div = document.getElementById('myBtn')
+        div.innerHTML = e
       }
 
       function drawStuff() {
@@ -179,12 +185,14 @@ window.addEventListener('keyup', (e)=>{
 
     // When the user clicks the button, open the modal
     btn.onclick = function() {
-        const result = bestPizza();
-        console.log(result);
-        btn.innerHTML = bestPizza();
-        console.log(btn.innerHTML);
-        // displayBestOption(bestPizza());
         modal.style.display = "block";
+        const result = bestPizza();
+        const div = document.getElementById('modal-content')
+        div.innerHTML = result;
+        // console.log(result);
+        // btn.innerHTML = result;
+        // console.log(btn.innerHTML);
+        // displayBestOption(bestPizza());
     }
 
     // When the user clicks on <span> (x), close the modal
