@@ -15,3 +15,11 @@ function willItWork(){
   getKeyByValue(Hash, max);
   console.log(result);
 }
+
+
+
+
+const what = 3 + 2 + "5";
+console.log(what);
+// console.log(what.type);
+console.log(typeof(what));

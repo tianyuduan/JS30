@@ -28,7 +28,7 @@
 <script>
   const addItems = document.querySelector('.add-items');
   const itemsList = document.querySelector('.plates');
-  const items = [];
+  const items = JSON.parse(localStorage.getItem('items')) || [];
 
   function addItem(e) {
     //stops it from refreshing
@@ -40,7 +40,8 @@
     }
     // this = form, form have a reset element on it
     items.push(item);
-    populateList(items, itemsList)
+    populateList(items, itemsList);
+    localStorage.setItem('items', JSON.stringify(items));
     this.reset();
     console.log(items);
   }
@@ -56,7 +57,12 @@
     }).join('');
   }
 
+//local storage, stuff saved @ the domain, you can save txt to browser, it stays on refresh
+
   addItems.addEventListener('submit', addItem)
+
+
+  populateList(items, itemsList)
 </script>
 
 
