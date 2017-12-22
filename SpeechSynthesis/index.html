@@ -5,6 +5,7 @@
   <title>Speech Synthesis</title>
   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="main.css">
 </head>
 <body>
 
@@ -57,7 +58,7 @@
   }
 
   function setOption() {
-    console.log(this.name, this.value);
+    // console.log(this.name, this.value);
     msg[this.name] = this.value;
     toggle();
   }
@@ -67,7 +68,6 @@
   options.forEach(option => option.addEventListener('change', setOption));
   speakButton.addEventListener('click', toggle);
   stopButton.addEventListener('click', () => toggle(false));
-
 </script>
 
 </body>
