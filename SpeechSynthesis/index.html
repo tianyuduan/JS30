@@ -23,6 +23,7 @@
       <label for="pitch">Pitch:</label>
 
       <input name="pitch" type="range" min="0" max="2" step="0.1">
+      <div class="words" contenteditable>
       <textarea name="text">Roses are red, Violets are blue, I never met anyone as pretty as you</textarea>
       <button id="stop">Stop!</button>
       <button id="speak">Speak</button>
@@ -68,6 +69,60 @@
   options.forEach(option => option.addEventListener('change', setOption));
   speakButton.addEventListener('click', toggle);
   stopButton.addEventListener('click', () => toggle(false));
+
+  window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  const recognition = new SpeechRecognition();
+  recognition.interimResults = true;
+  recognition.lang = 'en-US';
+
+  let p = document.createElement('p');
+  const words = document.querySelector('.words');
+  words.appendChild(p);
+
+  recognition.addEventListener('result', e => {
+    const transcript = Array.from(e.results)
+      .map(result => result[0])
+      .map(result => result.transcript)
+      .join('');
+
+      if (p.textContent.includes('poop')){
+        const poopScript = transcript.replace(/poop|poo|shit|dump/gi, '💩');
+        p.textContent = poopScript;
+        console.log(poopScript);
+      }
+      //
+      // const nameScript = transcript.replace(/what is your name/gi, 'My name is Siri Just kidding');
+      //
+      // const weatherScript = transcript.replace(/what is the weather|weather/gi, 'the weather in San Mateo is 78 F');
+
+      // const changeScript = function(){
+
+        // const nameScript = transcript.replace(/what is your name/gi, 'My name is Siri Just kidding');
+
+        const weatherScript = transcript.replace(/what is the weather|weather/gi, 'the weather in San Mateo is 78 F');
+        p.textContent = weatherScript;
+
+      // }
+      // p.textContent = changeScript;
+
+      // if (nameScript){
+      //   console.log('hello');
+      // }
+      // else if (weatherScript) {
+      //     p.textContent = nameScript;
+      // }
+
+      if (e.results[0].isFinal) {
+        p = document.createElement('p');
+        words.appendChild(p);
+      }
+  });
+
+  recognition.addEventListener('end', recognition.start);
+
+  recognition.start();
+
 </script>
 
 </body>
