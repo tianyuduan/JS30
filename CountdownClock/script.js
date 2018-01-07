@@ -17,7 +17,8 @@ function timer(seconds) {
       clearInterval(countdown);
     }
 
-    console.log(secsLeft);
+    // console.log(secsLeft);
+    displayTimeLeft(secsLeft);
   }, 1000);
 }
 
@@ -25,6 +26,8 @@ function timer(seconds) {
 function displayTimeLeft(seconds) {
   const mins = Math.floor(seconds / 60);
   const remainderSeconds = seconds % 60;
-    console.log(mins);
+  const display = `${mins}:${remainderSeconds}`;
+    // console.log(mins);
+    console.log(display);
 }
-timer(5);
+timer(120);
