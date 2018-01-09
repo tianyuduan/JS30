@@ -9,6 +9,20 @@
   <div class="one">
     <div class="two">
       <div class="three">
+        <div>
+          Event bubbling and capturing are ways of event propagation in the HTML DOM API.
+          Event Progagation determines which order the elements receive the event.
+
+          With bubbling, the event is first captured and handled by the innermost element and then propagated to outer elements.
+
+          With capturing, the event is first captured by the outermost element and propagated to the inner elements.
+
+          Capturing is also called "trickling", which helps remember the propagation order:
+
+          "trickle down, bubble up"
+
+          
+        </div>
       </div>
     </div>
   </div>
@@ -56,7 +70,7 @@
   //capture is default false, it will fire the funciton on the way down, rather than on the way up
   divs.forEach(div => div.addEventListener('click', logText, {
     capture: false,
-    once: true, //listen for a click, once its clicked, it will remove itself from the event listener 
+    once: true, //listen for a click, once its clicked, it will remove itself from the event listener
   }));
 
   //browser does something called a capture, goes from top down
@@ -64,7 +78,11 @@
   //then the bubbling goes from bottom up
   //firing off the click events , from three, two, then one
 
-
+  button.addEventListener('click', () => {
+    console.log('Click!!!');
+  }, {
+    once: true
+  });
 </script>
 </body>
 </html>
