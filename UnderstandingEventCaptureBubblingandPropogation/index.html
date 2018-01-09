@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Understanding JavaScript's Capture</title>
+</head>
+<body class="bod">
+
+  <div class="one">
+    <div class="two">
+      <div class="three">
+      </div>
+    </div>
+  </div>
+
+<style>
+  html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after { box-sizing: inherit; }
+
+  div {
+    width:100%;
+    padding:100px;
+  }
+
+  .one {
+    background: thistle;
+  }
+
+  .two {
+    background:mistyrose;
+  }
+
+  .three {
+    background:coral;
+  }
+</style>
+
+<button></button>
+<script>
+  const divs = document.querySelectorAll('div');
+  // console.log(divs);
+
+  function logText(e) {
+
+    console.log(this); //refers to whatever is getting clicked by, ex: div class ='three'
+    console.log(this.classList); //refers to the DOM token list, has value, length and 0
+    console.log(this.classList.value) //calls the value, in this game, "three"
+    // e.stopPropagation(); //stop bubbling
+
+  }
+
+  // divs.forEach(div => div.addEventListener('click', logText));
+
+  //capture is default false, it will fire the funciton on the way down, rather than on the way up
+  divs.forEach(div => div.addEventListener('click', logText, {
+    capture: false,
+    once: true, //listen for a click, once its clicked, it will remove itself from the event listener 
+  }));
+
+  //browser does something called a capture, goes from top down
+  //figures out what it needs to capture
+  //then the bubbling goes from bottom up
+  //firing off the click events , from three, two, then one
+
+
+</script>
+</body>
+</html>
