@@ -214,6 +214,23 @@
 </style>
 
 <script>
+  //selects all query docuements from cool to li
+  const triggers = document.querySelectorAll('.cool > .li');
+  const background = document.querySelector('dropdownBackground');
+  const nav = document.querySelector('.top');
+
+
+  function handleEnter() {
+
+  }
+
+  function handleOut() {
+
+  }
+
+  triggers.forEach(trigger => trigger.addEventListener('mouseenter', handleEnter))
+  triggers.forEach(trigger => trigger.addEventListener('mouseleave', handleOut))
+
 </script>
 
 </body>
