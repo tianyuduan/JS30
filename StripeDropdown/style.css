@@ -1,0 +1,226 @@
+@import url("font-awesome.min.css");
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,900");
+@import 'https://fonts.googleapis.com/css?family=Karla';
+
+/*
+  Twenty by HTML5 UP
+  html5up.net | @ajlkn
+  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
+
+/* Reset */
+
+  html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+  }
+
+  article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+  }
+
+  /* html {
+    box-sizing: border-box;
+    font-family: "Arial Rounded MT Bold","Helvetica Rounded",Arial,sans-serif
+  } */
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  body {
+    min-height: 100vh;
+  	background: linear-gradient(15deg, #25ddf5, #53f);
+  	font-family: karla;
+  	color: #666;
+  	font-size: 18px;
+  	-webkit-font-smoothing: antialiased;
+  }
+
+  a{
+    color: inherit;
+				text-decoration: none;
+				display: block;
+				padding: 5px 0;
+  }
+
+  .cool > li > a:hover{
+    /* color: #333 !important; */
+    /* border: 2px solid red; */
+  }
+
+  header{
+  	position: relative;
+  	padding: 20px 0 0;
+  	transform-style: preserve3d;
+  	perspective: 3000px;
+  }
+
+  .menu{
+  	list-style: none;
+  	margin: 0;
+  	padding-left: 0;
+  	display: flex;
+  	justify-content: center;
+
+  	a{
+  		padding: 20px 20px;
+  		display: block;
+  		text-decoration: none;
+  		color: white;
+  	}
+
+  	&__item{
+  		position: relative;
+  		&:hover > .sub-menu-shadow{
+  			display: block;
+  		}
+  	}
+
+  	.sub-menu-shadow{
+  		position: absolute;
+  		display: none;
+  	}
+
+  }
+
+  h2 {
+    margin-top: 0;
+    padding-top: .8em;
+  }
+
+  nav {
+    position: relative;
+    perspective: 600px;
+  }
+
+  .cool > li > a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding:10px 20px;
+    display: inline-block;
+    margin:20px;
+    border-radius:5px;
+
+    /* padding: 20px 20px;
+		display: block;
+		text-decoration: none;
+		color: white; */
+  }
+
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .cool > li {
+    position: relative;
+    display:flex;
+    justify-content: center;
+  }
+
+  .dropdown {
+    opacity: 0;
+    position: absolute;
+    overflow: hidden;
+    padding:20px;
+    top:-20px;
+    border-radius:2px;
+    transition: all 0.5s;
+    transform: translateY(100px);
+    will-change: opacity;
+    display: none;
+  }
+
+  .trigger-enter .dropdown {
+    display: block;
+  }
+
+  .trigger-enter-active .dropdown {
+    opacity: 1;
+  }
+
+
+
+  .dropdownBackground {
+    width:100px;
+    height:100px;
+    position: absolute;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 50px 100px rgba(50,50,93,.1), 0 15px 35px rgba(50,50,93,.15), 0 5px 15px rgba(0,0,0,.1);
+    transition:all 0.3s, opacity 0.1s, transform 0.2s;
+    transform-origin: 50% 0;
+    display: flex;
+    justify-content: center;
+    opacity:0;
+  }
+
+  .dropdownBackground.open {
+    opacity: 1;
+  }
+
+  .arrow {
+    position: absolute;
+    width:20px;
+    height:20px;
+    display: block;
+    background:white;
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .bio {
+    min-width:500px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.7;
+  }
+
+  .bio img {
+    float:left;
+    margin-right:20px;
+  }
+
+  .courses {
+    min-width:300px;
+  }
+
+  .courses li {
+    padding: 10px 0;
+    display: block;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+  }
+
+  .dropdown a {
+    text-decoration: none;
+    color: #999;
+  }
+
+  span {
+    color: turquoise;
+  }
+
+  .dropdown a:hover{
+    color: #333 !important;
+  }
+
+  a.button {
+    background:black;
+    display: block;
+    padding:10px;
+    color:white;
+    margin-bottom: 10px;
+  }
+
+
+  /* Matches Twitter, TWITTER, twitter, tWitter, TWiTTeR... */
+  .button[href*=twitter] { background: #019FE9; }
+  .button[href*=facebook] { background: #3B5998; }
+  .button[href*=courses] { background: #ffc600; }
