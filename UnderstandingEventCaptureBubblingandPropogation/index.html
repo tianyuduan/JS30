@@ -9,20 +9,58 @@
   <div class="one">
     <div class="two">
       <div class="three">
-        <div>
+        <div style='color: white'>
           Event bubbling and capturing are ways of event propagation in the HTML DOM API.
           Event Progagation determines which order the elements receive the event.
-
           With bubbling, the event is first captured and handled by the innermost element and then propagated to outer elements.
-
           With capturing, the event is first captured by the outermost element and propagated to the inner elements.
-
           Capturing is also called "trickling", which helps remember the propagation order:
-
           "trickle down, bubble up"
-
-          
         </div>
+        <ul class='daddy'>
+        <span>
+          Case 1:
+          function logText(e) {
+            console.log(this.classList.value)
+          }
+            divs.forEach(div => div.addEventListener('click', logText));
+            result: inner box, prints 3,2,1
+          }));
+        </span>
+        <span>
+          Case 2:
+          function logText(e) {
+            console.log(this.classList.value)
+            e.stopPropagation();
+          }
+            divs.forEach(div => div.addEventListener('click', logText));
+            result: inner box, prints 3
+          }));
+        </span>
+        <span>
+          Case 3:
+          function logText(e) {
+            console.log(this.classList.value)
+          }
+          divs.forEach(div => div.addEventListener('click', logText, {
+            capture: true,
+          }));
+            result: inner box, prints 1,2,3
+          }));
+        </span>
+        <span>
+          Case 4:
+          function logText(e) {
+            console.log(this.classList.value)
+            e.stopPropagation();
+          }
+          divs.forEach(div => div.addEventListener('click', logText, {
+            capture: true,
+          }));
+            result: inner box, prints 1, in all cases
+          }));
+        </span>
+      </ul>
       </div>
     </div>
   </div>
@@ -38,6 +76,12 @@
     padding:100px;
   }
 
+  .daddy {
+    display: flex;
+    color: white;
+    justify-content: space-around;
+    font-size: 18px;
+  }
   .one {
     background: thistle;
   }
@@ -58,19 +102,18 @@
 
   function logText(e) {
 
-    console.log(this); //refers to whatever is getting clicked by, ex: div class ='three'
-    console.log(this.classList); //refers to the DOM token list, has value, length and 0
+    // console.log(this); //refers to whatever is getting clicked by, ex: div class ='three'
+    // console.log(this.classList); //refers to the DOM token list, has value, length and 0
     console.log(this.classList.value) //calls the value, in this game, "three"
-    // e.stopPropagation(); //stop bubbling
-
+    e.stopPropagation(); //stop bubbling
   }
 
   // divs.forEach(div => div.addEventListener('click', logText));
 
   //capture is default false, it will fire the funciton on the way down, rather than on the way up
   divs.forEach(div => div.addEventListener('click', logText, {
-    capture: false,
-    once: true, //listen for a click, once its clicked, it will remove itself from the event listener
+    capture: true,
+    // once: true, //listen for a click, once its clicked, it will remove itself from the event listener
   }));
 
   //browser does something called a capture, goes from top down
@@ -78,11 +121,11 @@
   //then the bubbling goes from bottom up
   //firing off the click events , from three, two, then one
 
-  button.addEventListener('click', () => {
-    console.log('Click!!!');
-  }, {
-    once: true
-  });
+  // button.addEventListener('click', () => {
+  //   console.log('Click!!!');
+  // }, {
+  //   once: true
+  // });
 </script>
 </body>
 </html>
