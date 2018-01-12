@@ -39,3 +39,35 @@ function Human(firstName, lastName){
 
 > when an object is created in JavaScript, JavaScript engine adds a \_\_proto_\_\_ property to the newly created object    
 > which is called a dunder proto, \_\_proto_\_\_ points to the prototype object of the constructor function.
+
+![](https://github.com/rupeshmi/CodeSprint/blob/dev/JavaScript/Part2/CodeSnippets/HumanObjectProto.png)
+> person1 object has which is created using Human constructor has a proto property which points to the prototype object of the > constructor function
+
+```//create a person
+  let person1 = new Human('Tianyu', "Duan");
+  console.log(person1);
+```
+
+> Console Output </br>
+
+```
+person1
+Human {firstName: "tianyu", lastName: "duan", fullName: ƒ}
+firstName
+:
+"tianyu"
+fullName
+:
+ƒ ()
+lastName
+:
+"duan"
+__proto__
+:
+constructor
+:
+ƒ Human(firstName, lastName)
+__proto__
+:
+Object
+```

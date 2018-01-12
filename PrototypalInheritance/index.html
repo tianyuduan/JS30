@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript Prototypes</title>
+  </head>
+  <body>
+
+
+<script>
+  function Human(firstName, lastName){
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.fullName = function(){
+      return this.firstName + this.lastName;
+    };
+  }
+
+  let person1 = new Human('tianyu', 'duan');
+</script>
+
+</body>
+</html>
