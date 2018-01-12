@@ -80,10 +80,26 @@ person1.__proto__ === person2.__proto__ //true
 ```
 ![](https://github.com/rupeshmi/CodeSprint/blob/dev/JavaScript/Part2/CodeSnippets/person12ConsProto.png)
 
-## Thus, Prototype object of the constructor function is shared among all the objects created using the constructor function.
+### Thus, Prototype object of the constructor function is shared among all the objects created using the constructor function.
 
 >> we can attach properties and methods to the prototype object. Thus, enabling all the objects created using the constructor function to share those properties and methods.
 
 ```
 Human.prototype.age = 26;
+Human.prototype.jog= function () {
+    console.log(this.firstName + 'is jogging');
+ };
 ```
+
+>> instantiating a Human
+
+```
+ const person3 = new Human('sarah', "whitman");
+ person3.jog(); //sarah is jogging
+ person3.age // 26
+```
+
+>> When we try to access a property of an object, JavaScript engines first tries to find the property on the object; if the property is present on the object it outputs its value. But, if the property is not present on the object then it checks tries to find the property on the prototype object or dunder proto of the object. If the property is found the value is returned else JavaScript engine tries to find the property on the dunder proto of the dunder proto of the object. This chain continues till the dunder proto property is null. In this cases output will be undefined.
+
+
+### TLDR: .prototype accesses the children, while \_\_proto_\_\_ asks who the parents are. 
