@@ -24,6 +24,7 @@ function Human(firstName, lastName){
 
 > what happens when we log Human?
 --
+
 > console.log(Human)
 --
 > it returns undefined
