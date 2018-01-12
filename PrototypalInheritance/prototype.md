@@ -33,6 +33,6 @@ function Human(firstName, lastName){
 > console.log(Human.prototype)
 ```
 
-> will actually return the function Human {}, Chrome Dev tools will return  --
+> will actually return the function Human {}, Chrome Dev tools will return  <br/>
 > Constructor: function Human(first, last) --
 > __proto__: Object
