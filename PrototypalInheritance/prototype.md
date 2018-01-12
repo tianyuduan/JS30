@@ -34,5 +34,5 @@ function Human(firstName, lastName){
 ```
 
 > will actually return the function Human {}, Chrome Dev tools will return  <br/>
-> Constructor: function Human(first, last) --
-> __proto__: Object
+> Constructor: function Human(first, last) <br/>
+> ```__proto__: Object```
