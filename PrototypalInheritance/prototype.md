@@ -28,7 +28,11 @@ function Human(firstName, lastName){
 ```
 > it returns undefined
 --
-> how do we access the prototype property of the Human constructor
+> then how do we access the prototype property of the Human constructor
 ```
 > console.log(Human.prototype)
 ```
+
+> will actually return the function Human {}, Chrome Dev tools will return  --
+> Constructor: function Human(first, last) --
+> __proto__: Object

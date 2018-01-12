@@ -49,4 +49,4 @@ function Human(firstName, lastName){
 // console.log(Human("tianyu", "Duan"));
 // console.log(person1);
 
-console.log(Human);
+console.log(Human.prototype);
