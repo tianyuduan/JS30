@@ -61,3 +61,21 @@ __proto__:
 constructor: ƒ Human(firstName, lastName)
 __proto__: Object
 ```
+
+> in this case, we can see that Human.prototype === person1.\_\_proto_\_\_  //true <br/>
+> Both person1s dunder property and Human.prototype are pointing at the same object. <br/>
+
+> Say we make another Person
+
+```//create a person
+  let person2 = new Human('Sky', "Fish");
+  console.log(person2);
+```
+
+> We will find out that even person2’s dunder proto property is equal to the Human.prototype property and they points to the same object.
+
+```
+Human.prototype === person2.__proto__ //true
+person1.__proto__ === person2.__proto__ //true
+```
+![](https://github.com/rupeshmi/CodeSprint/blob/dev/JavaScript/Part2/CodeSnippets/person12ConsProto.png)
