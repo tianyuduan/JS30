@@ -36,3 +36,6 @@ function Human(firstName, lastName){
 > will actually return the function Human {}, Chrome Dev tools will return  <br/>
 > Constructor: function Human(first, last) <br/>
 > ```__proto__: Object```
+
+> when an object is created in JavaScript, JavaScript engine adds a \_\_proto_\_\_ property to the newly created object    
+> which is called a dunder proto, \_\_proto_\_\_ points to the prototype object of the constructor function.
