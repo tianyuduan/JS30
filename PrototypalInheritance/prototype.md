@@ -105,3 +105,30 @@ Human.prototype.jog= function () {
 
 
 ### TLDR: .prototype accesses the children, while \_\_proto_\_\_ asks who the parents are.
+
+> Adding properties to prototypes </br>
+> You cannot add a new property to a prototype the same way as you add a new property to an existing object, because the prototype is not an existing object.
+
+```
+not
+Person.nationality = "English";
+```
+
+> but
+
+```
+function Person(first, last, age, eyecolor) {
+    this.firstName = first;
+    this.lastName = last;
+    this.age = age;
+    this.eyeColor = eyecolor;
+    this.nationality = "English";
+}
+```
+
+or
+
+```
+Person.prototype.nationality = "English";
+
+```
