@@ -23,13 +23,12 @@ function Human(firstName, lastName){
 ```
 
 > what happens when we log Human?
---
-
-> console.log(Human)
---
+```
+ console.log(Human)
+```
 > it returns undefined
 --
 > how do we access the prototype property of the Human constructor
---
+```
 > console.log(Human.prototype)
---
+```
