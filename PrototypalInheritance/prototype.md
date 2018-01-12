@@ -84,6 +84,8 @@ person1.__proto__ === person2.__proto__ //true
 
 ### Thus, Prototype object of the constructor function is shared among all the objects created using the constructor function.
 
+### prototypal inheritance can be defined as the act of sharing methods from the prototype.
+
 >> we can attach properties and methods to the prototype object. Thus, enabling all the objects created using the constructor function to share those properties and methods.
 
 ```
@@ -126,7 +128,7 @@ function Person(first, last, age, eyecolor) {
 }
 ```
 
-or
+> or
 
 ```
 Person.prototype.nationality = "English";
