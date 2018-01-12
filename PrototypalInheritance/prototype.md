@@ -1,9 +1,8 @@
 # What is a prototype?  & Understanding prototype inheritance
 
-> First things first, all JavaScript objects inherit their properties and methods from their prototype.
-> The Object.prototype is on the top of the prototype chain.
+> First things first, all JavaScript objects inherit their properties and methods from their prototype. </br>
+> The Object.prototype is on the top of the prototype chain. </br>
 > When a function is created in JavaScript, JavaScript engine adds a prototype property to the function.
-> All JavaScript objects inherit their properties and methods from their prototype.
 
 
 > This prototype property is an object, which has a constructor property by default.
