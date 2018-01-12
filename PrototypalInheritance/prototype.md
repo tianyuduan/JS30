@@ -79,3 +79,11 @@ Human.prototype === person2.__proto__ //true
 person1.__proto__ === person2.__proto__ //true
 ```
 ![](https://github.com/rupeshmi/CodeSprint/blob/dev/JavaScript/Part2/CodeSnippets/person12ConsProto.png)
+
+## Thus, Prototype object of the constructor function is shared among all the objects created using the constructor function.
+
+>> we can attach properties and methods to the prototype object. Thus, enabling all the objects created using the constructor function to share those properties and methods.
+
+```
+Human.prototype.age = 26;
+```
