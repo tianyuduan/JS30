@@ -1,10 +1,13 @@
 # What is a prototype?  & Understanding prototype inheritance
 
+> First things first, all JavaScript objects inherit their properties and methods from their prototype.
+> The Object.prototype is on the top of the prototype chain.
 > When a function is created in JavaScript, JavaScript engine adds a prototype property to the function.
+> All JavaScript objects inherit their properties and methods from their prototype.
 
 
-> this prototype property is an object, which has a constructor property by default
-> the prototype property allows you to add new properties and methods to existing objects types.
+> This prototype property is an object, which has a constructor property by default.
+> The prototype property allows you to add new properties and methods to existing objects types.
 > We can access the functions prototype property using functionName.prototype
 
 ![](https://github.com/rupeshmi/CodeSprint/blob/dev/JavaScript/Part2/CodeSnippets/ConstructorPrototype.png)
@@ -102,4 +105,4 @@ Human.prototype.jog= function () {
 >> When we try to access a property of an object, JavaScript engines first tries to find the property on the object; if the property is present on the object it outputs its value. But, if the property is not present on the object then it checks tries to find the property on the prototype object or dunder proto of the object. If the property is found the value is returned else JavaScript engine tries to find the property on the dunder proto of the dunder proto of the object. This chain continues till the dunder proto property is null. In this cases output will be undefined.
 
 
-### TLDR: .prototype accesses the children, while \_\_proto_\_\_ asks who the parents are. 
+### TLDR: .prototype accesses the children, while \_\_proto_\_\_ asks who the parents are.
