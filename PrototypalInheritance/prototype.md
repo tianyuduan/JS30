@@ -1,4 +1,4 @@
-# What is a prototype?  & understanding prototype inheritance
+# What is a prototype?  & Understanding prototype inheritance
 
 > When a function is created in JavaScript, JavaScript engine adds a prototype property to the function.
 
@@ -12,7 +12,8 @@
 
 > As shown in the above image, Human constructor function has a prototype property which points to the prototype object. The prototype object has a constructor property which points back to the Human constructor function.
 
-```function Human(firstName, lastName){
+```
+function Human(firstName, lastName){
   this.firstName = firstName;
   this.lastName = lastName;
   this.fullName = function(){
@@ -20,3 +21,11 @@
   }
 };
 ```
+
+> what happens when we log Human?
+> console.log(Human)
+> it returns undefined
+
+
+> how do we access the prototype property of the Human constructor
+> console.log(Human.prototype)

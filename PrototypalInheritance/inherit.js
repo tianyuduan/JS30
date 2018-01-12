@@ -36,4 +36,17 @@
 // // console.log(a.myname());
 
 
-console.log((5005 % 5));
+function Human(firstName, lastName){
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.fullName = function(){
+    return this.firstName + this.lastName;
+  };
+}
+
+
+// let person1 = new Human('tianyu', 'duan');
+// console.log(Human("tianyu", "Duan"));
+// console.log(person1);
+
+console.log(Human);
