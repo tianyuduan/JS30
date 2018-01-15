@@ -6,8 +6,9 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+   <a class='link' href="ajaxExplanation.md" target="_blank">MarkDown Explanation</a>
   <form class="search-form">
+    
     <input type="text" class="search" placeholder="City or State">
     <ul class="suggestions">
       <li>Filter for a city</li>
@@ -32,7 +33,6 @@ fetch(endpoint)
       return place.city.match(regex) || place.state.match(regex)
     })
   }
-
 
 
   function numberWithCommas(x) {

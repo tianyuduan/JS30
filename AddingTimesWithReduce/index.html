@@ -5,7 +5,8 @@
   <title>Videos</title>
 </head>
 <body>
-  <ul class="videos">
+   <a class='link' href="reduceArray.md" target="_blank">MarkDown Explanation</a>
+  <ul id="videos">
     <li data-time="5:43">
       Video 1
     </li>
@@ -180,11 +181,63 @@
     <li data-time="4:04">
       Video 58
     </li>
+    <div id='clock'>
+        <p class="time">{{ time }}</p>
+    </div>
   </ul>
+
+  <style>
+  html,body {
+  height: 100%;
+}
+body {
+  background: #0f3854;
+  background: radial-gradient(ellipse at center,  #0a2e38  0%, #000000 70%);
+  background-size: 100%;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+#clock {
+  font-family: 'Share Tech Mono', monospace;
+  color: #ffffff;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #daf6ff;
+  text-shadow: 0 0 20px rgba(10, 175, 230, 1),  0 0 20px rgba(10, 175, 230, 0);
+}
+
+  .time {
+      letter-spacing: 0.05em;
+      font-size: 80px;
+      padding: 5px 0;
+  }
+  .date {
+      letter-spacing: 0.1em;
+      font-size: 24px;
+  }
+  .text {
+    /* position: absolute; */
+      letter-spacing: 0.1em;
+      font-size: 12px;
+      padding: 20px 0 0;
+  }
+  .link {
+    color: white;
+    font-family: sans-serif;
+    text-align: center;
+  }
+}
+  </style>
 <script>
 
 //selects from Array, query selector
 const lists = Array.from(document.querySelectorAll('[data-time]'));
+const time = document.querySelector('.time');
 
 // console.log(lists);
 //   function addTime(e) {
@@ -205,7 +258,7 @@ const lists = Array.from(document.querySelectorAll('[data-time]'));
   const mins = Math.floor(secondsLeft / 60);
   secondsLeft = secondsLeft % 60;
 
-  
+  time.innerHTML = hours + ":" + mins + ":"+ secondsLeft;
   console.log(hours, mins, secondsLeft);
 
 </script>
