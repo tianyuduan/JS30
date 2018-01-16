@@ -111,17 +111,40 @@
 		color: white; */
   }
 
+  .header{
+    position:absolute;
+    color: white;
+    text-decoration: none;
+    font-size: 28px;
+    padding:10px 20px;
+    display: inline-block;
+    margin:20px;
+    border-radius:5px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+  }
+
   nav ul {
-    list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
+     list-style: none;
     justify-content: center;
+    /* display: table; */
+    /* width: 2000px; */
+    /* display: table; */
+    /* flex-wrap: wrap;
+    height: 2000px;
+    width: 2000px */
   }
 
   .cool > li {
     position: relative;
     display:flex;
+    /* display: inline-block; */
     justify-content: center;
   }
 
@@ -134,8 +157,8 @@
     border-radius:2px;
     transition: all 0.5s;
     transform: translateY(100px);
-    will-change: opacity;
     display: none;
+    will-change: opacity;
   }
 
 

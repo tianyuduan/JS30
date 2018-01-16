@@ -1,7 +1,7 @@
 html {
   box-sizing: border-box;
   font-size: 10px;
-  background: #ffc600;
+  background-image: url('background.jpg');
 }
 
 *, *:before, *:after {
@@ -66,4 +66,24 @@ h1 {
 
 .hole.up .mole {
   top:0;
+}
+
+ .btn {
+    /* position: absolute; */
+    margin-left: 10em;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #f1f1f1;
+    color: black;
+    font-size: 16px;
+    padding: 16px 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: black;
+    color: white;
 }
