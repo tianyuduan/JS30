@@ -125,7 +125,33 @@
     justify-content: center;
   }
 
-  .dropdown {
+  .dropdown{
+    opacity: 0;
+    position: absolute;
+    overflow: hidden;
+    padding:20px;
+    top:-20px;
+    border-radius:2px;
+    transition: all 0.5s;
+    transform: translateY(100px);
+    will-change: opacity;
+    display: none;
+  }
+
+  .dropdown2 {
+    opacity: 0;
+    position: absolute;
+    overflow: hidden;
+    padding:20px;
+    top:-20px;
+    border-radius:2px;
+    transition: all 0.5s;
+    transform: translateY(100px);
+    will-change: opacity;
+    display: none;
+  }
+
+  .dropdown3 {
     opacity: 0;
     position: absolute;
     overflow: hidden;
@@ -141,12 +167,22 @@
   .trigger-enter .dropdown {
     display: block;
   }
+  .trigger-enter .dropdown2 {
+    display: block;
+  }
+  .trigger-enter .dropdown3 {
+    display: block;
+  }
 
   .trigger-enter-active .dropdown {
     opacity: 1;
   }
-
-
+  .trigger-enter-active .dropdown2 {
+    opacity: 1;
+  }
+  .trigger-enter-active .dropdown3 {
+    opacity: 1;
+  }
 
   .dropdownBackground {
     width:100px;
@@ -191,14 +227,38 @@
   .courses {
     min-width:300px;
   }
+  .courses2 {
+    min-width:300px;
+  }
+  .courses3 {
+    min-width:300px;
+  }
 
   .courses li {
     padding: 10px 0;
     display: block;
     border-bottom: 1px solid rgba(0,0,0,0.2);
   }
+  .courses2 li {
+    padding: 10px 0;
+    display: block;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+  }
+  .courses3 li {
+    padding: 10px 0;
+    display: block;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+  }
 
-  .dropdown a {
+    .dropdown a {
+      text-decoration: none;
+      color: #999;
+    }
+   .dropdown2 a {
+    text-decoration: none;
+    color: #999;
+  }
+   .dropdown2 a {
     text-decoration: none;
     color: #999;
   }
@@ -208,6 +268,12 @@
   }
 
   .dropdown a:hover{
+    color: #333 !important;
+  }
+  .dropdown2 a:hover{
+    color: #333 !important;
+  }
+  .dropdown3 a:hover{
     color: #333 !important;
   }
 
