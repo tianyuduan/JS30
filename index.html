@@ -13,6 +13,10 @@
       <span class="arrow"></span>
     </div>
 
+    <div class="dropdownBackground2">
+
+    <div class="dropdownBackground3">
+
     <ul class="cool">
       <li>
         <a href="#">About Me</a>
@@ -32,7 +36,7 @@
       </li>
       <li>
         <a href="#">Projects</a>
-        <ul class="dropdown courses">
+        <ul class="dropdown courses project1">
           <li>
             <span class="code">Arrays</span>
             <a href="./AddingTimesWithReduce/index.html">Array sorting using Reduce</a>
@@ -67,7 +71,7 @@
           </li>
         </ul>
 
-        <ul class='dropdown2 courses2'>
+        <ul class='dropdown2 courses2 project2'>
           <li>
             <span class="code">MMD</span>
             <a href="./HTML5Player/index.html">HTML5 Player</a>
@@ -102,7 +106,7 @@
           </li>
           </ul>
 
-          <ul class="dropdown3 courses3">
+          <ul class="dropdown3 courses3 project3">
           <li>
             <span class="code">MMD</span>
             <a href="./SpeechDetection/index.html">Speech Detection</a>
@@ -152,10 +156,11 @@
 <script>
   //selects all query docuements from cool to li
   const triggers = document.querySelectorAll('.cool > li');
-  console.log(triggers);
+  const projects = document.querySelectorAll('.project1, .project2, .project3')
+  console.log(projects);
   let background  = document.querySelector('.dropdownBackground');
-  let background2  = document.querySelector('.dropdownBackground');
-  let background3  = document.querySelector('.dropdownBackground');
+  let background2  = document.querySelector('.dropdownBackground2');
+  let background3  = document.querySelector('.dropdownBackground3');
   const nav = document.querySelector('.top');
 
 
@@ -175,8 +180,8 @@
 
 
     background.classList.add('open')
-    background2.classList.add('open')
-    background3.classList.add('open')
+    // background2.classList.add('open')
+    // background3.classList.add('open')
 
     const dropdown = this.querySelector('.dropdown');
     const dropdown2 = this.querySelector('.dropdown2');
@@ -210,16 +215,16 @@
     background.style.setProperty('width', `${coords.width}px`);
     background.style.setProperty('height', `${coords.height}px`);
     background.style.setProperty('transform', `translate(${coords.left}px, ${coords.top}px)`);
+    background.style.setProperty('transform', `translate(${coords.left - 500}px, ${coords.top}px)`);
+    background.style.setProperty('transform', `translate(${coords.left + 500}px, ${coords.top}px)`);
 
-    background2.style.setProperty('width', `${coordsdd2.width}px`);
-    background2.style.setProperty('height', `${coordsdd2.height}px`);
-    background2.style.setProperty('transform', `translate(${coordsdd2.left}px, ${coordsdd2.top}px)`);
-
-    background3.style.setProperty('width', `${coordsdd3.width}px`);
-    background3.style.setProperty('height', `${coordsdd3.height}px`);
-    background3.style.setProperty('transform', `translate(${coordsdd3.left}px, ${coords.top}px)`);
-
-
+    // background2.style.setProperty('width', `${coordsdd2.width}px`);
+    // background2.style.setProperty('height', `${coordsdd2.height}px`);
+    // background2.style.setProperty('transform', `translate(${coordsdd2.left}px, ${coordsdd2.top}px)`);
+    //
+    // background3.style.setProperty('width', `${coordsdd3.width}px`);
+    // background3.style.setProperty('height', `${coordsdd3.height}px`);
+    // background3.style.setProperty('transform', `translate(${coordsdd3.left}px, ${coords.top}px)`);
   }
 
   function handleOut() {
@@ -229,7 +234,42 @@
 
   }
 
+  function handleProjects() {
+    console.log('hello');
+    this.classList.add('.trigger-enter');
+  setTimeout(() => this.classList.contains('trigger-enter') && this.classList.add('trigger-enter-active'), 150);
+
+  console.log(this);
+
+   background2.classList.add('open')
+
+   const dropdown = this.querySelector('.dropdown');
+   const dropdown2 = this.querySelector('.dropdown2');
+   const dropdown3 = this.querySelector('.dropdown3');
+   const dropdownCoords = dropdown.getBoundingClientRect();
+   const dropdownCoords2 = dropdown.getBoundingClientRect();
+   const dropdownCoords3 = dropdown.getBoundingClientRect();
+   const navCoords = nav.getBoundingClientRect();
+
+   const coordsdd2 = {
+     height: dropdownCoords.height,
+     width: dropdownCoords.width,
+     top: dropdownCoords.top - navCoords.top,
+     left: dropdownCoords.left - navCoords.left + 500
+   };
+
+   background.style.setProperty('width', `${coords.width}px`);
+   background.style.setProperty('height', `${coords.height}px`);
+   background.style.setProperty('transform', `translate(${coords.left}px, ${coords.top}px)`);
+   background.style.setProperty('transform', `translate(${coords.left - 500}px, ${coords.top}px)`);
+   background.style.setProperty('transform', `translate(${coords.left - 500}px, ${coords.top}px)`);
+
+  }
+
+
+
   triggers.forEach(trigger => trigger.addEventListener('mouseenter', handleEnter))
+  projects.forEach(project => project.addEventListener('mouseenter', handleProjects))
   triggers.forEach(trigger => trigger.addEventListener('mouseleave', handleOut))
 
 </script>
