@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <title>Speech Detection</title>
 </head>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="main.css">
+<div> Speech Detection Program <div>
+<div> Simply begin talking to create words on the screen<div>
 <body>
 
   <div class="words" contenteditable>
@@ -16,7 +20,8 @@
   recognition.interimResults = true;
   recognition.lang = 'en-US';
 
-  let p = document.createElement('p');
+  var p = document.createElement('p');
+  p.setAttribute("class", "text");
   const words = document.querySelector('.words');
   words.appendChild(p);
 
@@ -26,11 +31,30 @@
       .map(result => result.transcript)
       .join('');
 
-      // if (p.textContent.includes('poop')){
-        // const poopScript = transcript.replace(/poop|poo|shit|dump/gi, '💩');
-        // p.textContent = poopScript;
+      // console.log(transcript);
+      // console.log(typeof transcript);
+      // console.log(transcript.includes());
+
+      // let poopScript = '';
+      // console.log(string.includes('hello') === true)
+
+      if (transcript.includes('poop')){
+        // console.log('hello');
+        // console.log(p);
+        const poopScript = transcript.replace(/poop|poo|shit|dump/gi, '💩');
         // console.log(poopScript);
-      // }
+        // console.log(p.textContent);
+        // console.log(poopScript);
+        let texting = document.querySelector('.text');
+        // console.log(texting);
+        p.textContent = poopScript;
+        console.log(texting);
+        docusent.querySelector('.text').textContent  = "what the fuck"
+        // document.querySelector('.text').innerHTMl  = poopScript
+        // document.querySelector('.text').innerText  = poopScript
+      }
+      // console.log(poopScript);
+      // p.textContent = poopScript;
       //
       // const nameScript = transcript.replace(/what is your name/gi, 'My name is Siri Just kidding');
       //
@@ -43,6 +67,19 @@
         const weatherScript = transcript.replace(/what is the weather|weather/gi, 'the weather in San Mateo is 78 F');
         p.textContent = weatherScript;
 
+        if (transcript.includes('weather')){
+          // console.log('hello');
+          // console.log(p);
+          const weatherScript = transcript.replace(/what is the weather|weather/gi, 'the weather in San Mateo is 78 F');
+          // console.log(poopScript);
+          // console.log(p.textContent);
+          // console.log(poopScript);
+          let texting = document.querySelector('.text');
+          // console.log(texting);
+          p.textContent = weatherScript;
+          console.log(texting);
+          document.querySelector('.text').textContent  = weatherScript
+        }
       // }
       // p.textContent = changeScript;
 
@@ -61,50 +98,10 @@
 
   recognition.addEventListener('end', recognition.start);
 
+
+
   recognition.start();
 
 </script>
-
-
-  <style>
-    html {
-      font-size: 10px;
-    }
-
-    body {
-      background:#ffc600;
-      font-family: 'helvetica neue';
-      font-weight: 200;
-      font-size: 20px;
-    }
-
-    .words {
-      max-width:500px;
-      margin:50px auto;
-      background:white;
-      border-radius:5px;
-      box-shadow:10px 10px 0 rgba(0,0,0,0.1);
-      padding:1rem 2rem 1rem 5rem;
-      background: -webkit-gradient(linear, 0 0, 0 100%, from(#d9eaf3), color-stop(4%, #fff)) 0 4px;
-      background-size: 100% 3rem;
-      position: relative;
-      line-height:3rem;
-    }
-    p {
-      margin: 0 0 3rem;
-    }
-
-    .words:before {
-      content: '';
-      position: absolute;
-      width: 4px;
-      top: 0;
-      left: 30px;
-      bottom: 0;
-      border: 1px solid;
-      border-color: transparent #efe4e4;
-    }
-  </style>
-
 </body>
 </html>
