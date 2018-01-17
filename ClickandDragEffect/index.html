@@ -35,7 +35,7 @@
   </div>
 
 <script>
-  const slider = document.querySelector('.items')
+  const slider = document.querySelector('.items');
   // console.log(slider);
   let isDown = false;
   let startX;
@@ -48,21 +48,17 @@
     scrollLeft = slider.scrollLeft;
   });
 
-  slider.addEventListener('mouseleave', ()=> {
+  slider.addEventListener('mouseleave', () => {
     isDown = false;
     slider.classList.remove('active');
   });
 
-  slider.addEventListener('mouseup', ()=> {
+  slider.addEventListener('mouseup', () => {
     isDown = false;
     slider.classList.remove('active');
   });
 
-  // slider.addEventListener('mouseup', ()=> {
-  //   slider.classList.remove('active');
-  // })
-
-  slider.addEventListener('mouseMove', (e)=> {
+  slider.addEventListener('mousemove', (e) => {
     if (!isDown) return;
     e.preventDefault();
     const x = e.pageX - slider.offsetLeft;
