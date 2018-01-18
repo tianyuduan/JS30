@@ -5,7 +5,9 @@
 > the take away point is using promises to extract the .json file into a manipulable array
 
 ```
+const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
 const cities = []
+
 fetch(endpoint)
   .then(blob => blob.json())
   //returns promises
@@ -24,4 +26,4 @@ searchInput.addEventListener('keyup', displayMatches);
 
 ```
 
-On events where the user releases the key or changes the search, the event will fire the displayMatches function which in turn will run the function we wrote earlier to return the city and state and display it to the HTML.
+On events where the user releases the key or changes the search, the event will fire the displayMatches function which in turn will run the function we wrote earlier to return the city and state and display it to screen.
