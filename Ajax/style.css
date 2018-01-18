@@ -1,6 +1,6 @@
     html {
       box-sizing: border-box;
-      background:#ffc600;
+      background-image: url('snow.jpeg');
       font-family:'helvetica neue';
       font-size: 20px;
       font-weight: 200;
@@ -14,7 +14,7 @@
     }
 
     .search-form {
-      max-width:400px;
+      max-width: 500px;
       margin:50px auto;
     }
 
@@ -49,7 +49,8 @@
       padding:20px;
       transition:background 0.2s;
       display:flex;
-      justify-content:space-between;
+      flex-direction: column;
+      justify-content: space-around;
       text-transform: capitalize;
     }
 
@@ -68,4 +69,26 @@
 
     .hl {
       background:#ffc600;
+    }
+
+    .link {
+      color: white;
+    }
+
+    .header {
+      /* margin-top: 510px; */
+      background-color: #4CAF50; /* Green */
+      border: none;
+      /* color: white; */
+      background-color: #008CBA;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 5px;
+
     }
