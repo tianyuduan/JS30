@@ -73,14 +73,12 @@
 
     .link {
       color: white;
+      font-size: 24px;
     }
 
     .header {
-      /* margin-top: 510px; */
-      background-color: #4CAF50; /* Green */
       border: none;
-      /* color: white; */
-      background-color: #008CBA;
+      background-color: #4CAF50;
       color: white;
       padding: 20px;
       text-align: center;
@@ -90,5 +88,9 @@
       margin: 4px 2px;
       cursor: pointer;
       border-radius: 5px;
-
+    }
+    .parent {
+      padding-top: 70px;
+      display: flex;
+      justify-content: center;
     }
