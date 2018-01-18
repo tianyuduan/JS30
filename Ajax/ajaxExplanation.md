@@ -26,4 +26,4 @@ searchInput.addEventListener('keyup', displayMatches);
 
 ```
 
-On events where the user releases the key or changes the search, the event will fire the displayMatches function which in turn will run the function we wrote earlier to return the city and state and display it to screen.
+On events where the user releases the key or changes the search, the event will fire the displayMatches function which in turn will run the function we wrote earlier to return the city and/or state and display it to screen.
