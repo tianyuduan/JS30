@@ -163,6 +163,24 @@
     will-change: opacity;
   }
 
+  ul.dropdown.courses {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      width: 800px;
+      /* set the width in JS */
+      height: 600px;
+
+  }
+
+  .courses li {
+    padding: 10px 0;
+    display: block;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    flex-grow: row;
+    width: 200px;
+    height: 60px;
+  }
 
   .trigger-enter .dropdown {
     display: block;
@@ -180,7 +198,7 @@
     background: #fff;
     border-radius: 4px;
     box-shadow: 0 50px 100px rgba(50,50,93,.1), 0 15px 35px rgba(50,50,93,.15), 0 5px 15px rgba(0,0,0,.1);
-    transition:all 0.3s, opacity 0.1s, transform 0.2s;
+    transition:all 0.4s, opacity 0.1s, transform .2s;
     transform-origin: 50% 0;
     display: flex;
     justify-content: center;
@@ -217,13 +235,6 @@
     min-width:300px;
   }
 
-  .courses li {
-    padding: 10px 0;
-    display: block;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
-  }
-
-
     .dropdown a {
       text-decoration: none;
       color: #999;
@@ -245,13 +256,6 @@
     margin-bottom: 10px;
   }
 
-/* .dropdown {
-  min-width:500px;
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  line-height: 1.7;
-} */
 
   /* Matches Twitter, TWITTER, twitter, tWitter, TWiTTeR... */
   .button[href*=portfolio] { background: #019FE9; }
