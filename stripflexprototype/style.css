@@ -1,29 +1,44 @@
-html {
-  box-sizing: border-box;
-  font-family: "Arial Rounded MT Bold","Helvetica Rounded",Arial,sans-serif
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-body {
-  margin: 0;
-  min-height: 100vh;
-  background:
-    linear-gradient(45deg, hsla(340, 100%, 55%, 1) 0%, hsla(340, 100%, 55%, 0) 70%),
-    linear-gradient(135deg, hsla(225, 95%, 50%, 1) 10%, hsla(225, 95%, 50%, 0) 80%),
-    linear-gradient(225deg, hsla(140, 90%, 50%, 1) 10%, hsla(140, 90%, 50%, 0) 80%),
-    linear-gradient(315deg, hsla(35, 95%, 55%, 1) 100%, hsla(35, 95%, 55%, 0) 70%);
-}
+@import url("font-awesome.min.css");
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,900");
+@import 'https://fonts.googleapis.com/css?family=Karla';
 
-h2 {
-  margin-top: 0;
-  padding-top: .8em;
-}
 
-nav {
-  position: relative;
-  perspective: 600px;
-}
+
+  html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+  }
+
+  article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+  }
+
+  /* html {
+    box-sizing: border-box;
+    font-family: "Arial Rounded MT Bold","Helvetica Rounded",Arial,sans-serif
+  } */
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  body {
+    min-height: 100vh;
+    /* background-image: url('5.jpg'); */
+  	font-family: karla;
+  	color: #666;
+  	font-size: 18px;
+  	-webkit-font-smoothing: antialiased;
+  }
+
+  a{
+    color: inherit;
+				text-decoration: none;
+				display: block;
+				padding: 5px 0;
+  }
 
 .cool > li > a {
   color: yellow;
@@ -142,20 +157,6 @@ a.button {
 .button[href*=facebook] { background: #3B5998; }
 .button[href*=courses] { background: #ffc600; }
 
-html {
-  box-sizing: border-box;
-  background:#ffc600;
-  font-family:'helvetica neue';
-  font-size: 20px;
-  font-weight: 200;
-}
-body {
-  margin: 0;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
 .panels {
   min-height:100vh;
   overflow: hidden;
@@ -165,6 +166,8 @@ body {
 .panel {
   background:#6B0F9C;
   box-shadow:inset 0 0 0 5px rgba(255,255,255,0.1);
+  border: 2px solid white;
+  border-radius: 25%;
   color:white;
   text-align: center;
   align-items:center;
@@ -183,12 +186,16 @@ body {
   flex-direction: column;
 }
 
+body {
+    background-image: url(http://hdblackwallpaper.com/wallpaper/2015/07/white-wallpapers-20-free-hd-wallpaper.jpg);
 
-.panel1 { background-image:url(https://source.unsplash.com/gYl-UtwNg_I/1500x1500); }
-.panel2 { background-image:url(https://source.unsplash.com/rFKUFzjPYiQ/1500x1500); }
-.panel3 { background-image:url(https://images.unsplash.com/photo-1465188162913-8fb5709d6d57?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&w=1500&h=1500&fit=crop&s=967e8a713a4e395260793fc8c802901d); }
-.panel4 { background-image:url(https://source.unsplash.com/ITjiVXcwVng/1500x1500); }
-.panel5 { background-image:url(https://source.unsplash.com/3MNzGlQM7qs/1500x1500); }
+}
+
+.panel1 { background-image:url(https://c.tadst.com/gfx/1200x630/crocus-spring-equinox.jpg?1); }
+.panel2 { background-image:url(http://www.wallpapereast.com/static/images/6925209-apple-images-for-wallpaper-desktop.jpg); }
+.panel3 { background-image:url(http://www.wallpapereast.com/static/images/backgrounds-wallpapers-desktop-wallpaper-island-beach-tropical-tree-oasis-nature-landscapes-landscape-array-wallwuzz-hd-wallpaper-9691.jpg); }
+.panel4 { background-image:url(http://www.wallpapereast.com/static/images/Desktop-Wallpaper-HD2_vPq7fpn.jpg); }
+.panel5 { background-image:url(http://www.wallpapereast.com/static/images/Wallpaper-Desktop-HD-13_cnepeaY.jpg); }
 
 /* Flex Items */
 .panel > * {
@@ -219,4 +226,22 @@ body {
 .panel.open {
   flex: 5;
   font-size:40px;
+}
+
+.header{
+  /* position:absolute; */
+  color: black;
+  text-decoration: none;
+  font-size: 28px;
+  padding:10px 20px;
+  display: inline-block;
+  margin:20px;
+  border-radius:5px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
 }
