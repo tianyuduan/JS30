@@ -35,7 +35,8 @@
       .map(result => result[0])
       .map(result => result.transcript)
       .join('');
-
+      
+      console.log(transcript);
       p.textContent = transcript;
 
       // function toggle(startOver = true) {
@@ -55,26 +56,26 @@
         const weatherScript = transcript.replace(/what is the weather|weather/gi, 'the weather in San Mateo is 78 F');
         p.textContent = weatherScript;
       }
-      let toggling  = true;
-     if (transcript.includes('what is your name')){
-       // const namescript = transcript.replace(/what is your name|name/gi, 'My name is Siri Just kidding');
-       const nameScript = "My name is SkyBot, how are you"
-           p.textContent = nameScript; //visual
-           msg.text = nameScript; //audio
-           console.log('before');
-           // toggle();
-           console.log('what');
-           // speechSynthesis.cancel()
-           // if (!toggling){
-           //   toggling = true;
-           // }
 
-      }
+      let name = (function() {
+        let executed = false;
+        console.log(executed);
+        return function() {
+            if (!executed) {
+              console.log(executed);
+                 executed = true;
+                if (transcript.includes('name')){
+                  console.log(executed);
+                  let nameScript = "My name is SkyBot, how are you"
+                      p.textContent = nameScript; //visual
+                      msg.text = nameScript; //audio
+                      speechSynthesis.speak(msg)
+                      }
+                    };
+                  }
+                })();
 
-        function speak(input) {
-
-          speechSynthesis.speak(msg)
-        }
+                name();
 
       if (e.results[0].isFinal) {
         p = document.createElement('p');
@@ -83,8 +84,6 @@
   });
 
   recognition.addEventListener('end', recognition.start);
-
-
 
   recognition.start();
   // toggle(false);

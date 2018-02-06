@@ -147,6 +147,34 @@
     </ul>
   </nav>
 
+  <!-- <div class="panels">
+    <div class="panel panel1">
+      <p>Awesome</p>
+      <p>Drum</p>
+      <p>Kit</p>
+    </div>
+    <div class="panel panel2">
+      <p>Whack</p>
+      <p>A</p>
+      <p>Mole</p>
+    </div>
+    <div class="panel panel3">
+      <p>Speech</p>
+      <p>Detection</p>
+      <p>& Synthesis</p>
+    </div>
+    <div class="panel panel4">
+      <p>Population</p>
+      <p>Ajax</p>
+      <p>Finder</p>
+    </div>
+    <div class="panel panel5">
+      <p>Real</p>
+      <p>Life</p>
+      <p>Pizza Calculator</p>
+    </div>
+  </div> -->
+
 <script>
   //selects all query docuements from cool to li
   const triggers = document.querySelectorAll('.cool > li');
@@ -194,6 +222,27 @@
 
   triggers.forEach(trigger => trigger.addEventListener('mouseenter', handleEnter))
   triggers.forEach(trigger => trigger.addEventListener('mouseleave', handleOut))
+
+
+
+  // Flex Box display
+  const panels = document.querySelectorAll('.panel');
+
+  function toggleOpen() {
+    this.classList.toggle('open')
+  }
+
+
+  function toggleActive(e) {
+    console.log(e.propertyName);
+    if (e.propertyName.includes('flex')) {
+      this.classList.toggle('open-active');
+    }
+  }
+
+  panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+  panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
+
 
 </script>
 

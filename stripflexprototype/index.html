@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript 30</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <nav class="top">
+    <div class="dropdownBackground">
+      <span class="arrow"></span>
+    </div>
+
+    <ul class="cool">
+      <li>
+        <a href="#">Projects</a>
+        <ul class="dropdown courses">
+          <li>
+            <span class="code">RFB</span>
+            <a href="https://ReactForBeginners.com">React For Beginners</a>
+          </li>
+          <li>
+            <span class="code">ES6</span>
+            <a href="https://ES6.io">ES6 For Everyone</a>
+          </li>
+          <li>
+            <span class="code">STPU</span>
+            <a href="https://SublimeTextBook.com">Sublime Text Power User</a>
+          </li>
+          <li>
+            <span class="code">WTF</span>
+            <a href="http://flexbox.io">What The Flexbox?!</a>
+          </li>
+          <li>
+            <span class="code">LRX</span>
+            <a href="http://LearnRedux.com">Learn Redux</a>
+          </li>
+          <li>
+            <span class="code">CLPU</span>
+            <a href="http://CommandLinePowerUser.com">Command Line Power User</a>
+          </li>
+          <li>
+            <span class="code">MMD</span>
+            <a href="http://MasteringMarkdown.com">Mastering Markdown</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Other Links</a>
+        <ul class="dropdown dropdown3">
+          <li><a class="button" href="http://twitter.com/wesbos">Twitter</a></li>
+          <li><a class="button" href="http://facebook.com/wesbos.developer">Facebook</a></li>
+          <li><a class="button" href="http://wesbos.com">Blog</a></li>
+          <li><a class="button" href="http://wesbos.com/courses">Course Catalog</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="panels">
+    <div class="panel panel1">
+      <p>Hey</p>
+      <p>Let's</p>
+      <p>Dance</p>
+    </div>
+    <div class="panel panel2">
+      <p>Give</p>
+      <p>Take</p>
+      <p>Receive</p>
+    </div>
+    <div class="panel panel3">
+      <p>Experience</p>
+      <p>It</p>
+      <p>Today</p>
+    </div>
+    <div class="panel panel4">
+      <p>Give</p>
+      <p>All</p>
+      <p>You can</p>
+    </div>
+    <div class="panel panel5">
+      <p>Life</p>
+      <p>In</p>
+      <p>Motion</p>
+    </div>
+  </div>
+
+
+<script>
+  const triggers = document.querySelectorAll('.cool > li');
+  const background  = document.querySelector('.dropdownBackground');
+  const nav  = document.querySelector('.top');
+
+  function handleEnter() {
+    this.classList.add('trigger-enter');
+    setTimeout(() => this.classList.contains('trigger-enter') && this.classList.add('trigger-enter-active'), 150);
+    background.classList.add('open');
+
+    const dropdown = this.querySelector('.dropdown');
+    const dropdownCoords = dropdown.getBoundingClientRect();
+    const navCoords = nav.getBoundingClientRect();
+
+    const coords = {
+      height: dropdownCoords.height,
+      width: dropdownCoords.width,
+      top: dropdownCoords.top - navCoords.top,
+      left: dropdownCoords.left - navCoords.left
+    };
+
+    background.style.setProperty('width', `${coords.width}px`);
+    background.style.setProperty('height', `${coords.height}px`);
+    background.style.setProperty('transform', `translate(${coords.left}px, ${coords.top}px)`);
+  }
+
+  function handleLeave() {
+    this.classList.remove('trigger-enter', 'trigger-enter-active');
+    background.classList.remove('open');
+  }
+
+  triggers.forEach(trigger => trigger.addEventListener('mouseenter', handleEnter));
+  triggers.forEach(trigger => trigger.addEventListener('mouseleave', handleLeave));
+
+  const panels = document.querySelectorAll('.panel');
+
+  function toggleOpen() {
+    console.log('Hello');
+    this.classList.toggle('open');
+  }
+
+  function toggleActive(e) {
+    console.log(e.propertyName);
+    if (e.propertyName.includes('flex')) {
+      this.classList.toggle('open-active');
+    }
+  }
+
+  panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+  panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
+</script>
+
+</body>
+</html>
