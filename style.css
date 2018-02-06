@@ -163,12 +163,14 @@
     will-change: opacity;
   }
 
+
+/* Boxing in CSS to fit everything */
+
   ul.dropdown.courses {
-      display: flex;
-      flex-direction: column;
+    display: flex;
+     flex-direction: column;
       flex-wrap: wrap;
       width: 800px;
-      /* set the width in JS */
       height: 600px;
 
   }

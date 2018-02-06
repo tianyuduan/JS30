@@ -1,6 +1,10 @@
 @import url("font-awesome.min.css");
 @import url("https://fonts.googleapis.com/css?family=Lato:300,400,900");
 @import 'https://fonts.googleapis.com/css?family=Karla';
+@import "compass/css3";
+
+@import "compass/css3/transform";
+@import url(https://fonts.googleapis.com/css?family=Bangers);
 
 
 
@@ -41,14 +45,24 @@
   }
 
 .cool > li > a {
-  color: yellow;
+  /* color: yellow; */
   text-decoration: none;
   font-size: 20px;
-  background: rgba(0,0,0,0.2);
+  /* background: rgba(0,0,0,0.2); */
   padding:10px 20px;
   display: inline-block;
   margin:20px;
   border-radius:5px;
+  color: #fff;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-size: 2em;
+  z-index: 1000;
+  font-family: 'Bangers', cursive;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.7);
+  @include skew(0, -6.7deg, false);
+  @include transition-property(font-size);
+  @include transition-duration(0.5s);
 }
 
 nav ul {
@@ -85,8 +99,6 @@ nav ul {
 .trigger-enter-active .dropdown {
   opacity: 1;
 }
-
-
 
 .dropdownBackground {
   width:100px;
@@ -167,7 +179,7 @@ a.button {
   background:#6B0F9C;
   box-shadow:inset 0 0 0 5px rgba(255,255,255,0.1);
   border: 2px solid white;
-  border-radius: 25%;
+  border-radius: 25px;
   color:white;
   text-align: center;
   align-items:center;
@@ -186,10 +198,10 @@ a.button {
   flex-direction: column;
 }
 
-body {
+/* body {
     background-image: url(http://hdblackwallpaper.com/wallpaper/2015/07/white-wallpapers-20-free-hd-wallpaper.jpg);
 
-}
+} */
 
 .panel1 { background-image:url(https://c.tadst.com/gfx/1200x630/crocus-spring-equinox.jpg?1); }
 .panel2 { background-image:url(http://www.wallpapereast.com/static/images/6925209-apple-images-for-wallpaper-desktop.jpg); }
@@ -233,9 +245,9 @@ body {
   color: black;
   text-decoration: none;
   font-size: 28px;
-  padding:10px 20px;
+  padding: 10px 20px;
   display: inline-block;
-  margin:20px;
+  margin: 20px;
   border-radius:5px;
   text-align: center;
   margin-left: auto;
@@ -244,4 +256,36 @@ body {
   right: 0;
   display: flex;
   justify-content: center;
+}
+
+body {
+ background-color: #ED6565;
+}
+
+.wrap {
+  padding: 3em 0.5em;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  font-weight: normal;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 8em;
+  white-space: nowrap;
+  font-size: 6vw;
+  z-index: 1000;
+  font-family: 'Bangers', cursive;
+  text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.7);
+  @include skew(0, -6.7deg, false);
+  @include transition-property(font-size);
+  @include transition-duration(0.5s);
+}
+
+
+@media screen and (max-width: 50em) {
+  h1 {
+    font-size: 20vw;
+   }
 }
