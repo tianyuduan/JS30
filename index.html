@@ -2,201 +2,185 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>JS30 Repository</title>
-  <link rel="stylesheet" href="style.css">
-  <!-- <link rel="stylesheet" href="main.css"> -->
+  <title>JavaScript 30</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
 </head>
-<body>
-  <div class="header">
-    JavaScript 30:
-  </br>
-     30 Projects 30 Days
-  </div>
-  <!-- <h2>Cool</h2> -->
-  <nav class="top">
-    <div class="dropdownBackground">
-      <span class="arrow"></span>
-    </div>
+<body class="homepage">
+  <div id="header-wrapper">
+    <header id="header" class="container">
 
-    <ul class="cool">
-      <li>
-        <a href="#">About Me</a>
-        <div class="dropdown dropdown1">
-          <div class="bio">
-            <img src="./tianyuduan.jpg">
-            <p>Tianyu Duan Tianyu Duan
-              Tianyu Duan Tianyu Duan
-              Tianyu Duan Tianyu Duan
-              Tianyu Duan Tianyu Duan
-              Tianyu Duan Tianyu Duan
-              Tianyu Duan Tianyu Duan
-              Tianyu Duan Tianyu Duan
-            </p>
-          </div>
+      <!-- Logo -->
+        <div id="logo">
+          <h1><a href="index.html">JS30</a></h1>
+          <span>30 Projects 30 Days</span>
         </div>
-      </li>
-      <li>
-        <a href="#">Projects</a>
-          <ul class="dropdown courses ">
-            <li>
-              <span class="code">Arrays</span>
-              <a href="./AddingTimesWithReduce/index.html">Array sorting using Reduce</a>
-            </li>
-            <li>
-              <span class="code">Ajax</span>
-              <a href="./Ajax/index.html">Using Ajax</a>
-            </li>
-            <li>
-              <span class="code">Arrays</span>
-              <a href="./Array2/index.html">Array exercises</a>
-            </li>
-            <li>
-              <span class="code">WTF</span>
-              <a href="./ClickandDragEffect/index.html">ClickandDragEffect</a>
-            </li>
-            <li>
-              <span class="code">LRX</span>
-              <a href="./CSSClock/index.html">Clock</a>
-            </li>
-            <li>
-              <span class="code">CLPU</span>
-              <a href="./DevToolsTips/index.html">DevToolsTips</a>
-            </li>
-            <li>
-              <span class="code">MMD</span>
-              <a href="./FlexPanel/index.html">Flex Panel</a>
-            </li>
-            <li>
-              <span class="code">MMD</span>
-              <a href="./HTML5Canvas/index.html">HTML5 Canvas</a>
-            </li>
-            <li>
-              <span class="code">MMD</span>
-              <a href="./HTML5Player/index.html">HTML5 Player</a>
-            </li>
-            <li>
-              <span class="code">MMD</span>
-              <a href="./JavaScriptDrumKit/index.html">DrumKit</a>
-            </li>
-            <li>
-              <span class="code">MMD</span>
-              <a href="./LocalStorageandEventDelegation/index.html">Event Delegation</a>
-            </li>
-            <li>
-              <span class="code">MMD</span>
-            <a href="./PizzaCalculator/index.html">Pizza Calculator</a>
-            </li>
-            <li>
-              <span class="code">MMD</span>
-            <a href="./ReferenceVsCopy/index.html">ReferenceVsCopy</a>
-            </li>
-            <li>
-              <span class="code">MMD</span>
-              <a href="./SequenceDetection/index.html">Sequence Detection</a>
-            </li>
-            <li>
-              <span class="code">MMD</span>
-              <a href="./ShiftCheckboxes/index.html">Shift Checkboxes</a>
-            </li>
-            <li>
-              <span class="code">MMD</span>
-            <a href="./SlideInOnScroll/index.html">Slide Scroll</a>
-            </li>
-            <li>
-              <span class="code">MMD</span>
-              <a href="./SpeechDetection/index.html">Speech Detection</a>
-            </li>
-            <li>
-              <span class="code">MMD</span>
-          <a href="./SpeechSynthesis/index.html">SpeechSynthesis</a>
-            </li>
-            <li>
-              <span class="code">MMD</span>
-            <a href="./StickyNav/index.html">Sticky Nav</a>
-            </li>
-            <li>
-              <span class="code">MMD</span>
-            <a href="./EventCapturingBubbling/index.html">Event capturing and bubbling</a>
-            </li>
-            <li>
-              <span class="code">MMD</span>
-            <a href="./UpdateCSSwithJS/index.html">update CSS with JS</a>
-            </li>
-            <li>
-              <span class="code">MMD</span>
-            <a href="./VideoSpeedUI/index.html">VideoSpeedUI</a>
-            </li>
-            <li>
-              <span class="code">MMD</span>
-            <a href="./WebcamFun/index.html">WebcamFun</a>
-            </li>
-            <li>
-              <span class="code">MMD</span>
-            <a href="./WhackAMole/index.html">WhatckAMole Game</a>
-            </li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">Other Links</a>
-        <ul class="dropdown dropdown3">
-          <li><a class="button" href="https://tianyuduan.github.io/portfolio/">Portfolio</a></li>
-          <li><a class="button" href="https://www.linkedin.com/in/tianyu-duan/">Linkedin</a></li>
-          <li><a class="button" href="https://tianyuduan.github.io/portfolio/resume/TianyuDuanResume.pdf">Resume</a></li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
 
-  <!-- <div class="panels">
-    <div class="panel panel1">
-      <p>Awesome</p>
-      <p>Drum</p>
-      <p>Kit</p>
+      <!-- Nav -->
+        <!-- <nav id="nav">
+          <ul>
+            <ul>
+              <li class="current"><a href="index.html">Welcome</a></li>
+            <li>
+              <a href="#">Dropdown</a>
+              <ul>
+                <li><a href="#">Lorem ipsum dolor</a></li>
+                <li><a href="#">Magna phasellus</a></li>
+                <li>
+                  <a href="#">Phasellus consequat</a>
+                  <ul>
+                    <li><a href="#">Lorem ipsum dolor</a></li>
+                    <li><a href="#">Phasellus consequat</a></li>
+                    <li><a href="#">Magna phasellus</a></li>
+                    <li><a href="#">Etiam dolore nisl</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Veroeros feugiat</a></li>
+              </ul>
+            </li>
+            <li><a href="left-sidebar.html">Left Sidebar</a></li>
+            <li><a href="right-sidebar.html">Right Sidebar</a></li>
+            <li><a href="no-sidebar.html">No Sidebar</a></li>
+          </ul>
+        </nav> -->
+        <nav class="top">
+          <div class="dropdownBackground">
+            <!-- <span class="arrow"></span> -->
+          </div>
+
+          <ul class="cool">
+            <li>
+              <a  id='hover-white' href="#">Projects</a>
+              <ul class="dropdown courses">
+                    <li>
+                      <a href="./AddingTimesWithReduce/index.html">Array sorting using Reduce</a>
+                    </li>
+                    <!-- <li>
+                      <a href="./Ajax/index.html">Using Ajax</a>
+                    </li> -->
+                    <li>
+                      <a href="./Array2/index.html">Array exercises</a>
+                    </li>
+                    <li>
+                      <a href="./ClickandDragEffect/index.html">ClickandDragEffect</a>
+                    </li>
+                    <li>
+                      <a href="./CSSClock/index.html">Clock</a>
+                    </li>
+                    <li>
+                      <a href="./DevToolsTips/index.html">DevToolsTips</a>
+                    </li>
+                    <!-- <li>
+                      <a href="./FlexPanel/index.html">Flex Panel</a>
+                    </li> -->
+                    <li>
+                      <a href="./HTML5Canvas/index.html">HTML5 Canvas</a>
+                    </li>
+                    <li>
+                      <a href="./HTML5Player/index.html">HTML5 Player</a>
+                    </li>
+                    <!-- <li>
+                      <a href="./JavaScriptDrumKit/index.html">DrumKit</a>
+                    </li> -->
+                    <li>
+                      <a href="./LocalStorageandEventDelegation/index.html">Event Delegation</a>
+                    </li>
+                    <!-- <li>
+                    <a href="./PizzaCalculator/index.html">Pizza Calculator</a>
+                    </li> -->
+                    <li>
+                    <a href="./ReferenceVsCopy/index.html">ReferenceVsCopy</a>
+                    </li>
+                    <li>
+                      <a href="./SequenceDetection/index.html">Sequence Detection</a>
+                    </li>
+                    <li>
+                      <a href="./ShiftCheckboxes/index.html">Shift Checkboxes</a>
+                    </li>
+                    <li>
+                    <a href="./SlideInOnScroll/index.html">Slide Scroll</a>
+                    </li>
+                    <!-- <li>
+                      <a href="./SpeechDetection/index.html">Speech Detection</a>
+                    </li>
+                    <li>
+                  <a href="./SpeechSynthesis/index.html">SpeechSynthesis</a>
+                    </li> -->
+                    <li>
+                    <a href="./StickyNav/index.html">Sticky Nav</a>
+                    </li>
+                    <li>
+                    <a href="./EventCapturingBubbling/index.html">Event capturing and bubbling</a>
+                    </li>
+                    <li>
+                    <a href="./UpdateCSSwithJS/index.html">Update CSS with JS</a>
+                    </li>
+                    <li>
+                    <a href="./VideoSpeedUI/index.html">VideoSpeedUI</a>
+                    </li>
+                    <li>
+                    <a href="./WebcamFun/index.html">WebcamFun</a>
+                    </li>
+                    <!-- <li>
+                    <a href="./WhackAMole/index.html">WhatckAMole Game</a>
+                    </li> -->
+              </ul>
+            </li>
+            <li>
+              <a  id='hover-white'href="#">Other Links</a>
+              <ul class="dropdown dropdown3">
+                <li><a class="button" href="https://tianyuduan.github.io/portfolio/">Portfolio</a></li>
+                <li><a class="button" href="https://www.linkedin.com/in/tianyu-duan/">Linkedin</a></li>
+                <li><a class="button" href="https://tianyuduan.github.io/ResumeHTML/">Resume</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+
+      </header>
     </div>
-    <div class="panel panel2">
-      <p>Whack</p>
-      <p>A</p>
-      <p>Mole</p>
+  <!-- Banner -->
+    <div id="banner-wrapper">
+      <div id="banner" class="box container">
+          <div class="panels">
+            <div class="panel panel1">
+              <p>Whack</p>
+              <p>A</p>
+              <p>Mole</p>
+            </div>
+            <div class="panel panel2">
+              <p>Real life</p>
+              <p>Pizza</p>
+              <p>Calculator</p>
+            </div>
+            <div class="panel panel3">
+              <p>Speech</p>
+              <p>Detection<
+              <p>Synthesis</p>
+            </div>
+            <div class="panel panel4">
+              <p>Population</p>
+              <p>Density</p>
+              <p>Finder</p>
+            </div>
+            <div class="panel panel5">
+              <p>Drum</p>
+              <p>Kit</p>
+              <p>Experience</p>
+            </div>
+          </div>
+      </div>
     </div>
-    <div class="panel panel3">
-      <p>Speech</p>
-      <p>Detection</p>
-      <p>& Synthesis</p>
-    </div>
-    <div class="panel panel4">
-      <p>Population</p>
-      <p>Ajax</p>
-      <p>Finder</p>
-    </div>
-    <div class="panel panel5">
-      <p>Real</p>
-      <p>Life</p>
-      <p>Pizza Calculator</p>
-    </div>
-  </div> -->
 
 <script>
-  //selects all query docuements from cool to li
   const triggers = document.querySelectorAll('.cool > li');
-  console.log(triggers);
-  let background  = document.querySelector('.dropdownBackground');
-  const nav = document.querySelector('.top');
-
+  const background  = document.querySelector('.dropdownBackground');
+  const nav  = document.querySelector('.top');
 
   function handleEnter() {
-    // this.classList.add('trigger-enter');
-    console.log('entered');
     this.classList.add('trigger-enter');
-    // setTimeout(()=> {
-
-    //   if (this.classList.contains('trigger-enter')){
-    //     return this.classList.add('trigger-enter-active');
-    //   }
-  //   return this.classList.add('trigger-enter-active')
-  // }, 100)
-
-  setTimeout(() => this.classList.contains('trigger-enter') && this.classList.add('trigger-enter-active'), 150);
-  background.classList.add('open');
+    setTimeout(() => this.classList.contains('trigger-enter') && this.classList.add('trigger-enter-active'), 150);
+    background.classList.add('open');
 
     const dropdown = this.querySelector('.dropdown');
     const dropdownCoords = dropdown.getBoundingClientRect();
@@ -214,24 +198,20 @@
     background.style.setProperty('transform', `translate(${coords.left}px, ${coords.top}px)`);
   }
 
-  function handleOut() {
-    console.log('leaving');
+  function handleLeave() {
     this.classList.remove('trigger-enter', 'trigger-enter-active');
-    background.classList.remove('open')
+    background.classList.remove('open');
   }
 
-  triggers.forEach(trigger => trigger.addEventListener('mouseenter', handleEnter))
-  triggers.forEach(trigger => trigger.addEventListener('mouseleave', handleOut))
+  triggers.forEach(trigger => trigger.addEventListener('mouseenter', handleEnter));
+  triggers.forEach(trigger => trigger.addEventListener('mouseleave', handleLeave));
 
-
-
-  // Flex Box display
   const panels = document.querySelectorAll('.panel');
 
   function toggleOpen() {
-    this.classList.toggle('open')
+    console.log('Hello');
+    this.classList.toggle('open');
   }
-
 
   function toggleActive(e) {
     console.log(e.propertyName);
@@ -242,8 +222,6 @@
 
   panels.forEach(panel => panel.addEventListener('click', toggleOpen));
   panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
-
-
 </script>
 
 </body>
