@@ -5,16 +5,40 @@
   <title>Speech Detection</title>
 </head>
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="main.css">
-<div> Speech Detection Program <div>
-<div> Simply begin talking to create words on the screen<div>
+<div class='font'> Speech Detection <div>
+<div class='font'> Simply begin talking to create words on the screen<div>
 <body>
-
-  <div class="words" contenteditable>
+  
+  <img class='robotFemale' src="./robotFemale.png" alt="">
+  
+  
+<div id="card">
+  <div class="header">
+    <b>Human Recording</b>
+    <b>Robot Response </b>
   </div>
+	<hr>
+    <div class="words" contenteditable>
+    </div>
+</div>
+
+<ul>
+    <li>
+      <a href="#">
+        <div class="fontsticky">
+          <h2>Questions to ask Robot</h2>
+          <p>"What is the weather"</p>
+          <p>"saying "Hello""</p>
+          <p>"My Name is ___"</p>
+          <p>"Donde Esta La Bibloteca"</p>
+        </div>
+      </a>
+    </li>
+  </ul>
+
 
 <script>
-    const msg = new SpeechSynthesisUtterance();
+  const msg = new SpeechSynthesisUtterance();
     console.log(msg);
     let voice = [];
 
@@ -25,68 +49,121 @@
   recognition.lang = 'en-US';
 
   var p = document.createElement('p');
-  p.setAttribute("class", "text");
+  var ai = document.createElement('p')
+  
+  p.setAttribute("class", "textRecognition");
+  ai.setAttribute('class', 'textAI');
+  
   const words = document.querySelector('.words');
   words.appendChild(p);
+  words.appendChild(ai);
+  
+  let transcript = '';
+  
+  // msg.text = 'howdy'
+  // speechSynthesis.speak(msg);
+  // 
 
+  let uniq = [];
+
+  function toggleSpeak(line) {
+      // console.log(line);
+      let trigger = true;
+      if (uniq.includes(line)){
+        trigger = false;
+      }
+      else if (trigger){
+        trigger = false;
+        msg.text = line;
+        speechSynthesis.speak(msg)
+      }
+      uniq.push(line);
+      // console.log(uniq);
+  }
+  
+  
+  
   recognition.addEventListener('result', e => {
     console.log(e);
-    const transcript = Array.from(e.results)
+     transcript = Array.from(e.results)
       .map(result => result[0])
       .map(result => result.transcript)
       .join('');
-      
-      console.log(transcript);
+
       p.textContent = transcript;
-
-      // function toggle(startOver = true) {
-      //   speechSynthesis.cancel();
-      //   if (startOver){
-      //     speechSynthesis.speak(msg)
-      //     // startOver = false;
-      //   }
-      // }
-
+      
+      console.log(p.textContent);
+      if (transcript.includes('hello')){
+        setTimeout(function () {
+          
+          const greetingsScript = 'hello stranger what is your name';
+          ai.textContent = greetingsScript;
+          toggleSpeak(greetingsScript);
+        }, 500)// console.log(greetingsScript);
+      }
+      
+      
       if (transcript.includes('poop')){
          const poopScript = transcript.replace(/poop|poo|shit|dump/gi, '💩');
          p.textContent = poopScript;
        //
       }
+      
      if (transcript.includes('weather')){
-        const weatherScript = transcript.replace(/what is the weather|weather/gi, 'the weather in San Mateo is 78 F');
-        p.textContent = weatherScript;
+        const weatherScript =  ('the weather in San Mateo is 78 F');
+        ai.textContent = weatherScript; //text display
+        toggleSpeak(weatherScript);
       }
+      
+      if (transcript.includes('how are you') || (transcript.includes('what about yourself'))){
+         const greeting2 =  ('I am good myself, how about you?');
+         ai.textContent = greeting2; //text display
+         toggleSpeak(greeting2);
+       }
+       
+       if (transcript.includes('my name is')){
+         console.log(transcript);
+         setTimeout(function () {
+           let nameScript = transcript.replace('my name is', '');
+           ai.textContent = ('hello' + nameScript + " how are you")
+           toggleSpeak('hello' + nameScript + "how are you");
+         }, 1750)
+       }
+       
+       if (transcript.includes("I'm")  || transcript.includes("I am") || transcript.includes("I been")){
+         const greeting3 =  ('that is good to hear');
+         setTimeout(function () {
+           ai.textContent = greeting3; //text display
+           toggleSpeak(greeting3);
+         }, 1000)
+       }
 
-      let name = (function() {
-        let executed = false;
-        console.log(executed);
-        return function() {
-            if (!executed) {
-              console.log(executed);
-                 executed = true;
-                if (transcript.includes('name')){
-                  console.log(executed);
-                  let nameScript = "My name is SkyBot, how are you"
-                      p.textContent = nameScript; //visual
-                      msg.text = nameScript; //audio
-                      speechSynthesis.speak(msg)
-                      }
-                    };
-                  }
-                })();
+       if (transcript.includes('initiate secret convo')){
 
-                name();
+         setTimeout(function () {
 
-      if (e.results[0].isFinal) {
-        p = document.createElement('p');
-        words.appendChild(p);
-      }
+           
+         }, 1000)
+       }
+       
+       if (transcript.includes('donde esta la biblioteca') ||  transcript.includes("Donde Bibloteca")){
+
+         setTimeout(function () {
+           const rap = ('Me llamo T-Bone, La aronia, disco teca. Disco teca, mun neca, La biblio teca, Está en beegoates granday, el perro, man teca. Man teca, beegoates, gigantay, pequeño, la ca beza es nievee, cer veza es bueno. Buenos, dias, me gusta papas frías, los beegoates de la cabra Es, Cameron Diaz. Yea Boi. Boi. Yea. What. Its 2009. Word')
+           ai.textContent = rap;
+           toggleSpeak(rap);
+         }, 1000)
+       } 
+
+      
   });
+  
 
   recognition.addEventListener('end', recognition.start);
 
   recognition.start();
   // toggle(false);
+
 
 </script>
 </body>
