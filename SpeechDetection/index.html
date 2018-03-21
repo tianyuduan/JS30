@@ -8,10 +8,10 @@
 <div class='font'> Speech Detection <div>
 <div class='font'> Simply begin talking to create words on the screen<div>
 <body>
-  
+
   <img class='robotFemale' src="./robotFemale.png" alt="">
-  
-  
+
+
 <div id="card">
   <div class="header">
     <b>Human Recording</b>
@@ -50,19 +50,19 @@
 
   var p = document.createElement('p');
   var ai = document.createElement('p')
-  
+
   p.setAttribute("class", "textRecognition");
   ai.setAttribute('class', 'textAI');
-  
+
   const words = document.querySelector('.words');
   words.appendChild(p);
   words.appendChild(ai);
-  
+
   let transcript = '';
-  
+
   // msg.text = 'howdy'
   // speechSynthesis.speak(msg);
-  // 
+  //
 
   let uniq = [];
 
@@ -80,9 +80,9 @@
       uniq.push(line);
       // console.log(uniq);
   }
-  
-  
-  
+
+
+
   recognition.addEventListener('result', e => {
     console.log(e);
      transcript = Array.from(e.results)
@@ -91,45 +91,45 @@
       .join('');
 
       p.textContent = transcript;
-      
+
       console.log(p.textContent);
       if (transcript.includes('hello')){
         setTimeout(function () {
-          
+
           const greetingsScript = 'hello stranger what is your name';
           ai.textContent = greetingsScript;
           toggleSpeak(greetingsScript);
         }, 500)// console.log(greetingsScript);
       }
-      
-      
+
+
       if (transcript.includes('poop')){
          const poopScript = transcript.replace(/poop|poo|shit|dump/gi, '💩');
          p.textContent = poopScript;
        //
       }
-      
+
      if (transcript.includes('weather')){
         const weatherScript =  ('the weather in San Mateo is 78 F');
         ai.textContent = weatherScript; //text display
         toggleSpeak(weatherScript);
       }
-      
+
       if (transcript.includes('how are you') || (transcript.includes('what about yourself'))){
          const greeting2 =  ('I am good myself, how about you?');
          ai.textContent = greeting2; //text display
          toggleSpeak(greeting2);
        }
-       
+
        if (transcript.includes('my name is')){
          console.log(transcript);
          setTimeout(function () {
            let nameScript = transcript.replace('my name is', '');
-           ai.textContent = ('hello' + nameScript + " how are you")
-           toggleSpeak('hello' + nameScript + "how are you");
+           ai.textContent = ('hello' + nameScript + " how you been")
+           toggleSpeak('hello' + nameScript + "how you been");
          }, 1750)
        }
-       
+
        if (transcript.includes("I'm")  || transcript.includes("I am") || transcript.includes("I been")){
          const greeting3 =  ('that is good to hear');
          setTimeout(function () {
@@ -142,10 +142,10 @@
 
          setTimeout(function () {
 
-           
+
          }, 1000)
        }
-       
+
        if (transcript.includes('donde esta la biblioteca') ||  transcript.includes("Donde Bibloteca")){
 
          setTimeout(function () {
@@ -153,11 +153,11 @@
            ai.textContent = rap;
            toggleSpeak(rap);
          }, 1000)
-       } 
+       }
 
-      
+
   });
-  
+
 
   recognition.addEventListener('end', recognition.start);
 
